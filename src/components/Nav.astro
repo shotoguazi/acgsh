@@ -88,12 +88,15 @@ const navItems = [
     .nav-logo {
       font-weight: 800;
       font-size: 1.15em;
-      background: linear-gradient(135deg, #ff69b4, #5b7cff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: #000;
       letter-spacing: .5px;
       transition: opacity .2s;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .nav-logo {
+        color: #fff;
+      }
     }
 
     .nav-logo:hover {
