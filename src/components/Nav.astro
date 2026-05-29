@@ -127,43 +127,6 @@ const navItems = [
       text-decoration: none;
     }
 
-  :global(.has-dropdown) {
-    position: relative;
-  }
-
-  :global(.has-dropdown:hover > .dropdown) {
-    display: block !important;
-  }
-
-  :global(.dropdown) {
-    display: none !important;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: var(--card);
-    border: var(--border);
-    border-radius: 12px;
-    padding: 6px;
-    min-width: 180px;
-    box-shadow: var(--shadow);
-    list-style: none;
-    z-index: 200;
-  }
-
-  :global(.dropdown li a) {
-    display: block;
-    padding: 8px 14px;
-    border-radius: 8px;
-    color: var(--text);
-    font-size: 14px;
-    white-space: nowrap;
-  }
-
-  :global(.dropdown li a:hover) {
-    background: rgba(91, 124, 255, .1);
-    text-decoration: none;
-  }
-
   .nav-toggle {
     display: none;
     flex-direction: column;
@@ -202,16 +165,56 @@ const navItems = [
     .nav-toggle {
       display: flex;
     }
+  }
+</style>
 
-    :global(.dropdown) {
+<style is:global>
+  .has-dropdown {
+    position: relative;
+  }
+
+  .has-dropdown:hover > .dropdown {
+    display: block !important;
+  }
+
+  .dropdown {
+    display: none !important;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--card);
+    border: var(--border);
+    border-radius: 12px;
+    padding: 6px;
+    min-width: 180px;
+    box-shadow: var(--shadow);
+    list-style: none;
+    z-index: 200;
+  }
+
+  .dropdown li a {
+    display: block;
+    padding: 8px 14px;
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .dropdown li a:hover {
+    background: rgba(91, 124, 255, .1);
+    text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+    .dropdown {
       position: static !important;
       box-shadow: none !important;
       border: none !important;
-      padding-left: 16px;
       display: none !important;
     }
 
-    :global(.has-dropdown:hover > .dropdown) {
+    .has-dropdown:hover > .dropdown {
       display: flex !important;
     }
   }
