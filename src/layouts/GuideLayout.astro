@@ -44,11 +44,21 @@ const { title, description } = Astro.props;
 
   .guide-content ul, .guide-content ol {
     margin: 8px 0;
-    padding-left: 20px;
+    padding: 0;
+    list-style: none;
   }
 
   .guide-content li {
     margin: 4px 0;
+    padding-left: 1.2em;
+    position: relative;
+  }
+
+  .guide-content li::before {
+    content: "•";
+    position: absolute;
+    left: 0.3em;
+    color: var(--muted);
   }
 
   .guide-content img {
