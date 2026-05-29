@@ -32,18 +32,24 @@ const navItems = [
 <nav class="navbar">
   <div class="nav-inner">
     <a href="/" class="nav-logo">魔都ACGN活动交流群 - 资讯站</a>
+
     <button class="nav-toggle" aria-label="菜单" id="nav-toggle">
-      <span></span><span></span><span></span>
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
+
     <ul class="nav-menu" id="nav-menu">
       {navItems.map((item) => (
-        <li class="nav-item {item.children ? 'has-dropdown' : ''}">
+        <li class={`nav-item ${item.children ? 'has-dropdown' : ''}`}>
           {item.children ? (
             <>
               <span class="nav-link">{item.text}</span>
               <ul class="dropdown">
                 {item.children.map((child) => (
-                  <li><a href={child.link}>{child.text}</a></li>
+                  <li>
+                    <a href={child.link}>{child.text}</a>
+                  </li>
                 ))}
               </ul>
             </>
@@ -56,76 +62,124 @@ const navItems = [
   </div>
 </nav>
 
-  <style>
+<style>
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, .8);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(20, 32, 60, .06);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, .04);
+  }
+
+  @media (prefers-color-scheme: dark) {
     .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(255, 255, 255, .8);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(20, 32, 60, .06);
-      box-shadow: 0 1px 8px rgba(0,0,0,.04);
+      background: rgba(15, 23, 48, .8);
+      border-bottom: 1px solid rgba(255, 255, 255, .06);
     }
+  }
 
-    @media (prefers-color-scheme: dark) {
-      .navbar {
-        background: rgba(15, 23, 48, .8);
-        border-bottom: 1px solid rgba(255,255,255,.06);
-      }
-    }
+  .nav-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--nav-height);
+    padding: 0 20px;
+  }
 
-    .nav-inner {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: var(--nav-height);
-      padding: 0 20px;
-    }
+  .nav-logo {
+    font-weight: 400;
+    font-size: 1.15em;
+    color: #000;
+    letter-spacing: .5px;
+    transition: opacity .2s;
+  }
 
+  @media (prefers-color-scheme: dark) {
     .nav-logo {
-      font-weight: 400;
-      font-size: 1.15em;
-      color: #000;
-      letter-spacing: .5px;
-      transition: opacity .2s;
+      color: #fff;
     }
+  }
 
-    @media (prefers-color-scheme: dark) {
-      .nav-logo {
-        color: #fff;
-      }
-    }
+  .nav-logo:hover {
+    opacity: .8;
+    text-decoration: none;
+  }
 
-    .nav-logo:hover {
-      opacity: .8;
-      text-decoration: none;
-    }
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 2px;
+    margin: 0;
+    padding: 0;
+  }
 
-    .nav-menu {
-      display: flex;
-      list-style: none;
-      gap: 2px;
-    }
+  .nav-item {
+    position: relative;
+  }
 
-    .nav-link {
-      display: block;
-      padding: 8px 14px;
-      border-radius: 8px;
-      color: var(--text);
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all .25s ease;
-      position: relative;
-    }
+  .nav-link {
+    display: block;
+    padding: 8px 14px;
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .25s ease;
+    position: relative;
+  }
 
-    .nav-link:hover {
-      background: linear-gradient(135deg, rgba(255,105,180,.08), rgba(91,124,255,.08));
-      text-decoration: none;
-    }
+  .nav-link:hover,
+  .has-dropdown:hover > .nav-link {
+    background: linear-gradient(135deg, rgba(255, 105, 180, .08), rgba(91, 124, 255, .08));
+    text-decoration: none;
+  }
+
+  .dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    min-width: 190px;
+    list-style: none;
+    padding: 8px;
+    margin: 0;
+    border-radius: 12px;
+    background: var(--card);
+    border: var(--border);
+    box-shadow: var(--shadow);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
+    z-index: 200;
+  }
+
+  .has-dropdown:hover > .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .dropdown a {
+    display: block;
+    padding: 8px 14px;
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 14px;
+    white-space: nowrap;
+    transition: background .2s ease;
+  }
+
+  .dropdown a:hover {
+    background: rgba(91, 124, 255, .1);
+    text-decoration: none;
+  }
 
   .nav-toggle {
     display: none;
@@ -146,6 +200,10 @@ const navItems = [
   }
 
   @media (max-width: 768px) {
+    .nav-toggle {
+      display: flex;
+    }
+
     .nav-menu {
       display: none;
       position: absolute;
@@ -155,6 +213,7 @@ const navItems = [
       background: var(--card);
       border-bottom: var(--border);
       flex-direction: column;
+      align-items: stretch;
       padding: 10px;
     }
 
@@ -162,8 +221,29 @@ const navItems = [
       display: flex;
     }
 
-    .nav-toggle {
-      display: flex;
+    .nav-item {
+      width: 100%;
+    }
+
+    .nav-link {
+      width: 100%;
+    }
+
+    .dropdown {
+      position: static;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      display: none;
+      box-shadow: none;
+      border: none;
+      background: transparent;
+      padding: 4px 0 4px 14px;
+      margin: 0;
+    }
+
+    .has-dropdown:hover > .dropdown {
+      display: block;
     }
   }
 </style>
@@ -171,58 +251,10 @@ const navItems = [
 <script>
   const toggle = document.getElementById('nav-toggle');
   const menu = document.getElementById('nav-menu');
+
   if (toggle && menu) {
     toggle.addEventListener('click', () => {
       menu.classList.toggle('open');
     });
   }
-
-  document.querySelectorAll('.has-dropdown').forEach(li => {
-    li.addEventListener('mouseenter', () => {
-      const dd = li.querySelector('.dropdown');
-      if (dd) dd.style.display = 'block';
-    });
-    li.addEventListener('mouseleave', () => {
-      const dd = li.querySelector('.dropdown');
-      if (dd) dd.style.display = '';
-    });
-  });
 </script>
-
-<style is:global>
-  .has-dropdown { position: relative; }
-  .dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: var(--card);
-    border: var(--border);
-    border-radius: 12px;
-    padding: 6px;
-    min-width: 180px;
-    box-shadow: var(--shadow);
-    list-style: none;
-    z-index: 200;
-  }
-  .dropdown li a {
-    display: block;
-    padding: 8px 14px;
-    border-radius: 8px;
-    color: var(--text);
-    font-size: 14px;
-    white-space: nowrap;
-  }
-  .dropdown li a:hover {
-    background: rgba(91, 124, 255, .1);
-    text-decoration: none;
-  }
-  @media (max-width: 768px) {
-    .dropdown {
-      position: static !important;
-      box-shadow: none !important;
-      border: none !important;
-      display: none !important;
-    }
-  }
-</style>
