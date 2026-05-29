@@ -4,43 +4,103 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="footer">
+  <div class="footer-bg"></div>
   <div class="footer-inner">
-    <p>
-      本网站采用
+    <div class="footer-links">
+      <a href="/">首页</a>
+      <span class="dot">·</span>
+      <a href="/guide/Comment/">评论区</a>
+      <span class="dot">·</span>
+      <a href="https://github.com/SHACGN/bw_docs" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <p class="footer-license">
       <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh-hans" target="_blank" rel="noopener">
-        知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 (CC BY-NC-ND 4.0)
+        CC BY-NC-ND 4.0
       </a>
     </p>
-    <p>Copyright © 2023-{year} 魔都ACGN交流群管理组</p>
+    <p class="footer-copy">Copyright © 2023-{year} 魔都ACGN活动交流群 - 管理组</p>
     <p class="footer-powered">
       Powered by <a href="https://astro.build" target="_blank" rel="noopener">Astro</a>
-      &nbsp;|&nbsp;
-      <a href="https://github.com/SHACGN/bw_docs" target="_blank" rel="noopener">GitHub</a>
     </p>
   </div>
 </footer>
 
 <style>
   .footer {
-    border-top: var(--border);
-    margin-top: 60px;
-    padding: 30px 20px;
+    position: relative;
+    overflow: hidden;
+    padding: 40px 20px 30px;
     text-align: center;
+    margin-top: 80px;
+    border-top: 1px solid var(--line);
+  }
+
+  .footer-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent, rgba(255,105,180,.03) 40%, rgba(91,124,255,.03));
+    pointer-events: none;
   }
 
   .footer-inner {
+    position: relative;
     max-width: 1100px;
     margin: 0 auto;
   }
 
-  .footer p {
+  .footer-links {
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    color: var(--muted);
+    font-size: 14px;
+    transition: color .2s;
+  }
+
+  .footer-links a:hover {
+    color: var(--brand);
+    text-decoration: none;
+  }
+
+  .dot {
+    color: var(--line);
+    font-size: 12px;
+  }
+
+  .footer-license a {
+    color: var(--muted);
+    font-size: 12px;
+    border: 1px solid var(--line);
+    padding: 3px 10px;
+    border-radius: 999px;
+    transition: all .2s;
+  }
+
+  .footer-license a:hover {
+    border-color: var(--brand);
+    color: var(--brand);
+    text-decoration: none;
+  }
+
+  .footer-copy {
     color: var(--muted);
     font-size: var(--small);
-    margin: 4px 0;
+    margin-top: 12px;
   }
 
   .footer-powered {
-    margin-top: 8px;
+    margin-top: 10px;
     font-size: 12px;
+    color: var(--muted);
+  }
+
+  .footer-powered a {
+    color: var(--brand2);
   }
 </style>

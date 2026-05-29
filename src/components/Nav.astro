@@ -31,7 +31,7 @@ const navItems = [
 
 <nav class="navbar">
   <div class="nav-inner">
-    <a href="/" class="nav-logo">魔都ACGN资讯站</a>
+    <a href="/" class="nav-logo">魔都ACGN活动交流群 - 资讯站</a>
     <button class="nav-toggle" aria-label="菜单" id="nav-toggle">
       <span></span><span></span><span></span>
     </button>
@@ -56,74 +56,84 @@ const navItems = [
   </div>
 </nav>
 
-<style>
-  .navbar {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(255, 255, 255, .85);
-    backdrop-filter: blur(12px);
-    border-bottom: var(--border);
-  }
-
-  @media (prefers-color-scheme: dark) {
+  <style>
     .navbar {
-      background: rgba(15, 23, 48, .85);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, .8);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(20, 32, 60, .06);
+      box-shadow: 0 1px 8px rgba(0,0,0,.04);
     }
-  }
 
-  .nav-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: var(--nav-height);
-    padding: 0 20px;
-  }
+    @media (prefers-color-scheme: dark) {
+      .navbar {
+        background: rgba(15, 23, 48, .8);
+        border-bottom: 1px solid rgba(255,255,255,.06);
+      }
+    }
 
-  .nav-logo {
-    font-weight: 800;
-    font-size: 1.1em;
-    color: var(--brand);
-    background: linear-gradient(135deg, var(--brand), var(--brand2));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: var(--nav-height);
+      padding: 0 20px;
+    }
 
-  .nav-menu {
-    display: flex;
-    list-style: none;
-    gap: 4px;
-  }
+    .nav-logo {
+      font-weight: 800;
+      font-size: 1.15em;
+      background: linear-gradient(135deg, #ff69b4, #5b7cff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: .5px;
+      transition: opacity .2s;
+    }
 
-  .nav-item {
+    .nav-logo:hover {
+      opacity: .8;
+      text-decoration: none;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 2px;
+    }
+
+    .nav-link {
+      display: block;
+      padding: 8px 14px;
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all .25s ease;
+      position: relative;
+    }
+
+    .nav-link:hover {
+      background: linear-gradient(135deg, rgba(255,105,180,.08), rgba(91,124,255,.08));
+      text-decoration: none;
+    }
+
+  :global(.has-dropdown) {
     position: relative;
   }
 
-  .nav-link {
-    display: block;
-    padding: 8px 14px;
-    border-radius: 8px;
-    color: var(--text);
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background .2s;
+  :global(.has-dropdown:hover > .dropdown) {
+    display: block !important;
   }
 
-  .nav-link:hover {
-    background: rgba(91, 124, 255, .1);
-    text-decoration: none;
-  }
-
-  .has-dropdown:hover .dropdown {
-    display: block;
-  }
-
-  .dropdown {
-    display: none;
+  :global(.dropdown) {
+    display: none !important;
     position: absolute;
     top: 100%;
     left: 0;
@@ -134,9 +144,10 @@ const navItems = [
     min-width: 180px;
     box-shadow: var(--shadow);
     list-style: none;
+    z-index: 200;
   }
 
-  .dropdown li a {
+  :global(.dropdown li a) {
     display: block;
     padding: 8px 14px;
     border-radius: 8px;
@@ -145,7 +156,7 @@ const navItems = [
     white-space: nowrap;
   }
 
-  .dropdown li a:hover {
+  :global(.dropdown li a:hover) {
     background: rgba(91, 124, 255, .1);
     text-decoration: none;
   }
@@ -189,11 +200,16 @@ const navItems = [
       display: flex;
     }
 
-    .dropdown {
-      position: static;
-      box-shadow: none;
-      border: none;
+    :global(.dropdown) {
+      position: static !important;
+      box-shadow: none !important;
+      border: none !important;
       padding-left: 16px;
+      display: none !important;
+    }
+
+    :global(.has-dropdown:hover > .dropdown) {
+      display: flex !important;
     }
   }
 </style>
