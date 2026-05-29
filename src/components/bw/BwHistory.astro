@@ -1,0 +1,79 @@
+---
+export interface Props {
+  chip?: string;
+  range?: string;
+}
+---
+
+<details class="bw-history">
+  <summary>
+    <div class="left">
+      {Astro.props.chip && <div class="bw-chip">{Astro.props.chip}</div>}
+      {Astro.props.range && <div class="bw-range">{Astro.props.range}</div>}
+    </div>
+    <span class="bw-caret"></span>
+  </summary>
+  <div class="content bw-archived">
+    <slot />
+    <div class="note">注：此内容为历史记录，可能已不适用于最新版本。</div>
+  </div>
+</details>
+
+<style>
+  .bw-history {
+    border-top: 1px solid var(--line);
+    border-left: 6px solid color-mix(in srgb, var(--theme-color, var(--c-green)) 55%, transparent);
+    background: linear-gradient(135deg,
+      color-mix(in srgb, var(--theme-color, var(--c-green)) 9%, transparent),
+      transparent
+    );
+  }
+
+  .bw-history summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    user-select: none;
+  }
+
+  .bw-history summary::-webkit-details-marker { display: none; }
+
+  .bw-history .left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+  }
+
+  .bw-caret {
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid var(--muted);
+    border-bottom: 2px solid var(--muted);
+    transform: rotate(-45deg);
+    transition: transform .2s ease;
+    flex: 0 0 auto;
+  }
+
+  details[open] .bw-caret { transform: rotate(45deg); }
+
+  .bw-history .content {
+    padding: 0 14px 14px;
+    color: var(--text);
+  }
+
+  .bw-archived {
+    opacity: .92;
+    filter: saturate(.9);
+  }
+
+  .note {
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+</style>

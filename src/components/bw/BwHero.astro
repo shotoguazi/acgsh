@@ -1,0 +1,45 @@
+---
+export interface Props {
+  version?: string;
+}
+
+const { version } = Astro.props;
+---
+
+<div class="bw-hero">
+  <slot name="title" />
+  <slot name="subtitle" />
+  {version && <span class="bw-ver"><b>版本</b> · {version}</span>}
+</div>
+
+<style>
+  .bw-hero {
+    background: linear-gradient(135deg, rgba(255, 105, 180, .18), rgba(91, 124, 255, .15));
+    border: var(--border);
+    border-radius: calc(var(--radius) + 6px);
+    padding: 26px 22px;
+    box-shadow: var(--shadow);
+    margin-bottom: 18px;
+  }
+
+  .bw-hero :global(h1) {
+    margin: 0 0 6px;
+    font-size: var(--h1);
+    letter-spacing: .5px;
+  }
+
+  .bw-ver {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: var(--border);
+    background: rgba(255, 255, 255, .55);
+    color: var(--muted);
+    font-size: var(--small);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .bw-ver { background: rgba(0, 0, 0, .18); }
+  }
+</style>

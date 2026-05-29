@@ -1,0 +1,32 @@
+---
+
+---
+
+<div class="bw-bilingual">
+  <div class="cn"><slot name="cn" /></div>
+  <div class="jp"><slot name="jp" /></div>
+</div>
+
+<style>
+  .bw-bilingual {
+    margin: 10px 0;
+    padding: 10px 14px;
+    border: var(--border);
+    border-radius: var(--radius);
+    background: rgba(0, 0, 0, .02);
+  }
+
+  .bw-bilingual .cn {
+    font-size: var(--base);
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1.75;
+  }
+
+  .bw-bilingual .jp {
+    margin-top: 6px;
+    font-size: var(--small);
+    color: var(--muted);
+    line-height: 1.7;
+  }
+</style>

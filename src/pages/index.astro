@@ -1,0 +1,176 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout>
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">魔都线下ACGN交流群-资讯站</h1>
+      <p class="hero-subtitle">Shanghai anime Docs</p>
+      <p class="hero-tagline">这是一个关于ACGN的资讯站</p>
+      <div class="hero-actions">
+        <a href="/guide/exhibit/BilibiliWorldBasicInfo/" class="btn btn-brand">BW2026</a>
+        <a href="/guide/concert/BilibiliMacroLinkBasicInfo/" class="btn btn-brand">BML2026</a>
+        <a href="/guide/exhibit/ChinaJoyBasicInfo/" class="btn btn-brand">ChinaJoy</a>
+        <a href="/guide/others/JP2025/" class="btn btn-brand">2025·闪击日本攻略</a>
+        <a href="/guide/others/ShanghaiTravelGuide_Anime/" class="btn btn-brand">上海游物推荐</a>
+        <span class="btn btn-alt">陆续增加中...</span>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="/mib/bw2025temporarily.jpeg" alt="BiliBiliWorLd2025" />
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="feature-card warn">
+      <h2>警告⚠️</h2>
+      <p>未经证实的消息不要转发。但是各位还是请注意安全。不接受陌生人食物!</p>
+    </div>
+    <div class="feature-card">
+      <h2>本站建立的目的性</h2>
+      <p>汇聚全网 ACGN 活动资源，打造魔都最全的 ACGN 活动信息平台！</p>
+    </div>
+    <div class="feature-card">
+      <h2>精准定位，快速查找</h2>
+      <p>通过便捷的筛选功能，快速找到你心仪的活动，不再错过任何精彩瞬间！</p>
+    </div>
+    <div class="feature-card">
+      <h2>实时更新，一手掌握</h2>
+      <p>一手资源，实时更新活动信息，让你永远快人一步！</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .hero-content {
+    flex: 1;
+  }
+
+  .hero-title {
+    font-size: 2.5em;
+    background: linear-gradient(135deg, var(--brand), var(--brand2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+  }
+
+  .hero-subtitle {
+    font-size: 1.3em;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+
+  .hero-tagline {
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all .2s;
+    cursor: pointer;
+  }
+
+  .btn-brand {
+    background: linear-gradient(135deg, var(--brand), var(--brand2));
+    color: #fff;
+    border: none;
+  }
+
+  .btn-brand:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 105, 180, .3);
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .btn-alt {
+    background: transparent;
+    border: 2px dashed var(--border);
+    color: var(--muted);
+  }
+
+  .hero-image {
+    flex-shrink: 0;
+    width: 300px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+
+  .hero-image img {
+    width: 100%;
+    display: block;
+  }
+
+  .features {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .feature-card {
+    background: var(--card);
+    border: var(--border);
+    border-radius: var(--radius);
+    padding: var(--pad);
+    box-shadow: var(--shadow);
+  }
+
+  .feature-card.warn {
+    border-left: 4px solid #ff4d4f;
+    background: linear-gradient(135deg, rgba(255, 77, 79, .05), transparent);
+  }
+
+  .feature-card h2 {
+    font-size: var(--h2);
+    margin-bottom: 10px;
+    color: var(--text);
+  }
+
+  .feature-card p {
+    color: var(--muted);
+    font-size: var(--base);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      flex-direction: column;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .hero-actions {
+      justify-content: center;
+    }
+
+    .hero-image {
+      width: 200px;
+    }
+  }
+</style>

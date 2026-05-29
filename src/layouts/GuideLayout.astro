@@ -1,0 +1,59 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="guide-content">
+    <slot />
+  </article>
+</BaseLayout>
+
+<style>
+  .guide-content {
+    max-width: 920px;
+    margin: 18px auto 60px;
+    padding: 0 14px;
+  }
+
+  .guide-content h1 {
+    font-size: var(--h1);
+    margin-bottom: 12px;
+  }
+
+  .guide-content h2 {
+    font-size: var(--h2);
+    margin: 24px 0 10px;
+  }
+
+  .guide-content h3 {
+    font-size: 1.1em;
+    margin: 18px 0 8px;
+  }
+
+  .guide-content p {
+    margin: 8px 0;
+    line-height: 1.75;
+  }
+
+  .guide-content ul, .guide-content ol {
+    margin: 8px 0;
+    padding-left: 20px;
+  }
+
+  .guide-content li {
+    margin: 4px 0;
+  }
+
+  .guide-content img {
+    max-width: 100%;
+    border-radius: var(--radius);
+    margin: 10px 0;
+  }
+</style>

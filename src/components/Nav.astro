@@ -1,0 +1,209 @@
+---
+const navItems = [
+  { text: '首页', link: '/' },
+  {
+    text: '展览',
+    children: [
+      { text: 'BW快速指南', link: '/guide/exhibit/BilibiliWorldBasicInfo/' },
+      { text: 'BW2026最新消息', link: '/guide/exhibit/BiliBiliWorld2026/' },
+      { text: 'ChinaJoy', link: '/guide/exhibit/ChinaJoyBasicInfo/' },
+    ],
+  },
+  {
+    text: '演唱会',
+    children: [
+      { text: 'BML快速指南', link: '/guide/concert/BilibiliMacroLinkBasicInfo/' },
+      { text: 'トゲナシトゲアリ Live', link: '/guide/concert/GirlsBandCryInfo/' },
+    ],
+  },
+  {
+    text: '其它',
+    children: [
+      { text: '上海未来活动一览', link: '/guide/others/OverviewOfShanghaiFutureACGNActivities/' },
+      { text: '出国带卡指南', link: '/guide/others/card/' },
+      { text: '上海游物推荐', link: '/guide/others/ShanghaiTravelGuide_Anime/' },
+      { text: '闪击日本攻略', link: '/guide/others/JP2025/' },
+      { text: '评论区', link: '/guide/Comment/' },
+    ],
+  },
+];
+---
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">魔都ACGN资讯站</a>
+    <button class="nav-toggle" aria-label="菜单" id="nav-toggle">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-menu" id="nav-menu">
+      {navItems.map((item) => (
+        <li class="nav-item {item.children ? 'has-dropdown' : ''}">
+          {item.children ? (
+            <>
+              <span class="nav-link">{item.text}</span>
+              <ul class="dropdown">
+                {item.children.map((child) => (
+                  <li><a href={child.link}>{child.text}</a></li>
+                ))}
+              </ul>
+            </>
+          ) : (
+            <a href={item.link} class="nav-link">{item.text}</a>
+          )}
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, .85);
+    backdrop-filter: blur(12px);
+    border-bottom: var(--border);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .navbar {
+      background: rgba(15, 23, 48, .85);
+    }
+  }
+
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--nav-height);
+    padding: 0 20px;
+  }
+
+  .nav-logo {
+    font-weight: 800;
+    font-size: 1.1em;
+    color: var(--brand);
+    background: linear-gradient(135deg, var(--brand), var(--brand2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 4px;
+  }
+
+  .nav-item {
+    position: relative;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 8px 14px;
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background .2s;
+  }
+
+  .nav-link:hover {
+    background: rgba(91, 124, 255, .1);
+    text-decoration: none;
+  }
+
+  .has-dropdown:hover .dropdown {
+    display: block;
+  }
+
+  .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--card);
+    border: var(--border);
+    border-radius: 12px;
+    padding: 6px;
+    min-width: 180px;
+    box-shadow: var(--shadow);
+    list-style: none;
+  }
+
+  .dropdown li a {
+    display: block;
+    padding: 8px 14px;
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .dropdown li a:hover {
+    background: rgba(91, 124, 255, .1);
+    text-decoration: none;
+  }
+
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .nav-toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: .3s;
+  }
+
+  @media (max-width: 768px) {
+    .nav-menu {
+      display: none;
+      position: absolute;
+      top: var(--nav-height);
+      left: 0;
+      right: 0;
+      background: var(--card);
+      border-bottom: var(--border);
+      flex-direction: column;
+      padding: 10px;
+    }
+
+    .nav-menu.open {
+      display: flex;
+    }
+
+    .nav-toggle {
+      display: flex;
+    }
+
+    .dropdown {
+      position: static;
+      box-shadow: none;
+      border: none;
+      padding-left: 16px;
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const menu = document.getElementById('nav-menu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('open');
+    });
+  }
+</script>

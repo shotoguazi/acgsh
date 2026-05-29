@@ -1,0 +1,27 @@
+---
+import GuideLayout from '@/layouts/GuideLayout.astro';
+import { BwCallout } from '@/components/bw/index';
+---
+
+<GuideLayout title="出国带卡指南 - 魔都ACGN资讯站">
+  <h1>出国带卡指南</h1>
+
+  <h2>支付方式</h2>
+  <ul>
+    <li>日本：SUICA / PASMO 等交通IC卡基本通用，微信/支付宝在部分店铺可用</li>
+    <li>推荐带一张 Visa/Mastercard 信用卡</li>
+    <li>兑换适量日元现金（建议3-5万日元）</li>
+  </ul>
+
+  <h2>注意事项</h2>
+  <ul>
+    <li>出国前通知银行出境行程，避免卡片被锁</li>
+    <li>开通境外取现功能</li>
+    <li>保管好卡片，建议分开放置</li>
+  </ul>
+
+  <BwCallout type="warn">
+    <div class="t">⚠️重要提醒</div>
+    部分国内银行卡在境外取现可能有手续费，请提前了解相关政策。
+  </BwCallout>
+</GuideLayout>

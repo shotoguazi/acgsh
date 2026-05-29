@@ -1,0 +1,52 @@
+---
+export interface Props {
+  chip?: string;
+  range?: string;
+}
+---
+
+<div class="bw-latest">
+  <div class="bw-update-head">
+    {Astro.props.chip && <div class="bw-chip">{Astro.props.chip}</div>}
+    {Astro.props.range && <div class="bw-range">{Astro.props.range}</div>}
+  </div>
+  <slot />
+</div>
+
+<style>
+  .bw-latest {
+    border-left: 6px solid var(--theme-color, var(--c-green));
+    background: linear-gradient(135deg,
+      color-mix(in srgb, var(--theme-color, var(--c-green)) 14%, transparent),
+      transparent
+    );
+    padding: 12px 14px;
+  }
+
+  .bw-update-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+
+  .bw-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 900;
+    border: 1px solid color-mix(in srgb, var(--theme-color, var(--c-green)) 35%, transparent);
+    background: color-mix(in srgb, var(--theme-color, var(--c-green)) 10%, transparent);
+    color: var(--theme-color, var(--c-green));
+  }
+
+  .bw-range {
+    font-size: 12px;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+</style>

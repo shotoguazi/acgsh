@@ -1,0 +1,22 @@
+---
+export interface Props {
+  theme?: 'green' | 'red' | 'yellow' | 'blue' | 'purple' | 'gray';
+}
+
+const { theme = 'green' } = Astro.props;
+---
+
+<div class={`bw-update bw-theme bw-${theme}`}>
+  <slot name="latest" />
+  <slot name="history" />
+</div>
+
+<style>
+  .bw-update {
+    border: var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin: 10px 0;
+    background: var(--card);
+  }
+</style>

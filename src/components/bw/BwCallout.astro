@@ -1,0 +1,38 @@
+---
+export interface Props {
+  type?: 'info' | 'warn' | 'default';
+}
+
+const { type = 'default' } = Astro.props;
+---
+
+<div class={`bw-callout ${type}`}>
+  <slot />
+</div>
+
+<style>
+  .bw-callout {
+    border: var(--border);
+    border-left: 5px solid var(--brand);
+    background: linear-gradient(135deg, rgba(255, 105, 180, .10), rgba(255, 255, 255, 0));
+    border-radius: var(--radius);
+    padding: 12px 14px;
+    margin: 10px 0;
+    color: var(--text);
+  }
+
+  .bw-callout :global(.t) {
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .bw-callout.warn {
+    border-left-color: #ff4d4f;
+    background: linear-gradient(135deg, rgba(255, 77, 79, .10), rgba(255, 255, 255, 0));
+  }
+
+  .bw-callout.info {
+    border-left-color: var(--brand2);
+    background: linear-gradient(135deg, rgba(91, 124, 255, .12), rgba(255, 255, 255, 0));
+  }
+</style>
