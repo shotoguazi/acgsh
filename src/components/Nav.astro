@@ -168,17 +168,31 @@ const navItems = [
   }
 </style>
 
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const menu = document.getElementById('nav-menu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('open');
+    });
+  }
+
+  document.querySelectorAll('.has-dropdown').forEach(li => {
+    li.addEventListener('mouseenter', () => {
+      const dd = li.querySelector('.dropdown');
+      if (dd) dd.style.display = 'block';
+    });
+    li.addEventListener('mouseleave', () => {
+      const dd = li.querySelector('.dropdown');
+      if (dd) dd.style.display = '';
+    });
+  });
+</script>
+
 <style is:global>
-  .has-dropdown {
-    position: relative;
-  }
-
-  .has-dropdown:hover > .dropdown {
-    display: block !important;
-  }
-
+  .has-dropdown { position: relative; }
   .dropdown {
-    display: none !important;
+    display: none;
     position: absolute;
     top: 100%;
     left: 0;
@@ -191,7 +205,6 @@ const navItems = [
     list-style: none;
     z-index: 200;
   }
-
   .dropdown li a {
     display: block;
     padding: 8px 14px;
@@ -200,12 +213,10 @@ const navItems = [
     font-size: 14px;
     white-space: nowrap;
   }
-
   .dropdown li a:hover {
     background: rgba(91, 124, 255, .1);
     text-decoration: none;
   }
-
   @media (max-width: 768px) {
     .dropdown {
       position: static !important;
@@ -213,19 +224,5 @@ const navItems = [
       border: none !important;
       display: none !important;
     }
-
-    .has-dropdown:hover > .dropdown {
-      display: flex !important;
-    }
   }
 </style>
-
-<script>
-  const toggle = document.getElementById('nav-toggle');
-  const menu = document.getElementById('nav-menu');
-  if (toggle && menu) {
-    toggle.addEventListener('click', () => {
-      menu.classList.toggle('open');
-    });
-  }
-</script>
