@@ -7,19 +7,92 @@ export interface Props {
 }
 
 const { title, description } = Astro.props;
+
+const sidebarLinks = [
+  { text: '首页', link: '/' },
+  { text: 'BW快速指南', link: '/guide/exhibit/BilibiliWorldBasicInfo/' },
+  { text: 'BW2026最新消息', link: '/guide/exhibit/BiliBiliWorld2026/' },
+  { text: 'ChinaJoy', link: '/guide/exhibit/ChinaJoyBasicInfo/' },
+  { text: 'BML快速指南', link: '/guide/concert/BilibiliMacroLinkBasicInfo/' },
+  { text: 'トゲナシトゲアリ Live', link: '/guide/concert/GirlsBandCryInfo/' },
+  { text: '上海未来活动一览', link: '/guide/others/OverviewOfShanghaiFutureACGNActivities/' },
+  { text: '出国带卡指南', link: '/guide/others/card/' },
+  { text: '上海游物推荐', link: '/guide/others/ShanghaiTravelGuide_Anime/' },
+  { text: '闪击日本攻略', link: '/guide/others/JP2025/' },
+  { text: '评论区', link: '/guide/Comment/' },
+];
+
+const currentPath = Astro.url.pathname;
 ---
 
 <BaseLayout title={title} description={description}>
-  <article class="guide-content">
-    <slot />
-  </article>
+  <div class="guide-layout">
+    <aside class="guide-sidebar">
+      <nav>
+        {sidebarLinks.map(item => (
+          <a href={item.link} class:list={{ active: currentPath === item.link }}>{item.text}</a>
+        ))}
+      </nav>
+    </aside>
+    <article class="guide-content">
+      <slot />
+    </article>
+  </div>
 </BaseLayout>
 
 <style>
+  .guide-layout {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 30px;
+    padding: 20px 20px 0;
+    min-height: calc(100vh - var(--nav-height));
+  }
+
+  .guide-sidebar {
+    width: 190px;
+    flex-shrink: 0;
+    position: sticky;
+    top: calc(var(--nav-height) + 20px);
+    align-self: flex-start;
+    max-height: calc(100vh - var(--nav-height) - 40px);
+    overflow-y: auto;
+    padding: 0 0 20px;
+  }
+
+  .guide-sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .guide-sidebar a {
+    display: block;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: background .15s, color .15s;
+  }
+
+  .guide-sidebar a:hover {
+    background: rgba(91,124,255,.1);
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .guide-sidebar a.active {
+    background: rgba(91,124,255,.12);
+    color: var(--brand2);
+    font-weight: 600;
+  }
+
   .guide-content {
-    max-width: 1400px;
-    margin: 18px auto 60px;
-    padding: 0 14px;
+    flex: 1;
+    min-width: 0;
+    padding: 0 0 60px;
   }
 
   .guide-content h1 {
@@ -62,9 +135,19 @@ const { title, description } = Astro.props;
   }
 
   .guide-content img {
-    max-width: 70%;
+    max-width: 100%;
     height: auto;
     border-radius: var(--radius);
     margin: 10px 0;
+  }
+
+  @media (max-width: 768px) {
+    .guide-layout {
+      flex-direction: column;
+      padding: 0 14px;
+    }
+    .guide-sidebar {
+      display: none;
+    }
   }
 </style>
