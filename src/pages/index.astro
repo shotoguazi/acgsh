@@ -14,8 +14,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         <a href="/guide/exhibit/ChinaJoyBasicInfo/" class="btn btn-brand">ChinaJoy</a>
         <a href="/guide/others/JP2025/" class="btn btn-brand">2025·闪击日本攻略</a>
         <a href="/guide/others/ShanghaiTravelGuide_Anime/" class="btn btn-brand">上海游物推荐</a>
-        <span class="btn btn-alt">陆续增加中...</span>
       </div>
+      <span class="btn btn-alt">陆续增加中...</span>
     </div>
     <div class="hero-image">
       <img src="https://i0.hdslb.com/bfs/activity-plat/static/20250603/4920177e4bf9eb2b0fd8dacba0e5dbf8/hLC8OJDn7U.jpg" alt="BW2026封面" referrerPolicy="no-referrer">
@@ -57,7 +57,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
   }
 
   .hero-title {
-    font-size: 2.5em;
+    font-size: 3.2em;
     background: linear-gradient(135deg, var(--brand), var(--brand2));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -67,6 +67,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 
   .hero-subtitle {
     font-size: 1.3em;
+    font-weight: 700;
     color: var(--muted);
     margin-bottom: 4px;
   }
@@ -109,11 +110,12 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
     background: transparent;
     border: 2px dashed var(--border);
     color: var(--muted);
+    margin-top: 8px;
   }
 
   .hero-image {
     flex-shrink: 0;
-    width: 300px;
+    width: 420px;
     border-radius: var(--radius);
     overflow: hidden;
     box-shadow: var(--shadow);
