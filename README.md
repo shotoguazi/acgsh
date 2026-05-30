@@ -1,4 +1,4 @@
-# 魔都线下ACGN交流群-资讯站 (koicomic.com)
+# 魔都线下ACGN交流群-资讯站 (acgsh.com)
 
 由 [VitePress](https://vitepress.dev/) 迁移至 [Astro](https://astro.build/) 构建的 ACGN 资讯站。
 
