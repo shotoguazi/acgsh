@@ -100,3 +100,8 @@ th {
 tr:last-child td {
   border-bottom: 0;
 }
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}

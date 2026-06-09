@@ -8,7 +8,7 @@ import {
 
 <GuideLayout title="BILIBILI WORLD 2026 新手快速指南 - 魔都ACGN资讯站">
   <div class="bw-wrap">
-    <BwHero version="v0.7.0 beta">
+    <BwHero version="v1.0.0 BW2026">
       <Fragment slot="title">
         <h1>BILIBILI WORLD 2026 新手快速指南</h1>
       </Fragment>
@@ -52,7 +52,7 @@ import {
 
       <BwUpdate>
         <BwLatest slot="latest" chip="✨最新进展" range="2026.06.09 ~">
-          ？
+          目前已完成网站迁移，并更新了许多条目
         </BwLatest>
         <BwHistory slot="history" chip="📑历史版本" range="2025.12.21 ~ 2026.02.23">
           管理组已完成瓜子女装版型设计初稿，并对细节比例进行最终微调与优化；
@@ -105,13 +105,37 @@ import {
           <tr><th class="center">年份</th><th class="center">举办时间</th><th class="center">城市</th><th class="center">举办地点</th><th class="center">备注</th></tr>
         </thead>
         <tbody>
-          <tr class="row-green"><td class="center"><b>2026</b></td><td class="center">2026.07.10 - 07.12</td><td class="center">上海</td><td>国家会展中心（上海）</td><td class="center"><b>预计</b></td></tr>
+          <tr class="row-green"><td class="center"><b>2026</b></td><td class="center">2026.07.10 - 07.12</td><td class="center">上海</td><td>国家会展中心（上海）</td><td class="center"><b>当前</b></td></tr>
           <tr class="row-gray"><td class="center"><b>2025</b></td><td class="center">2025.07.11 - 07.13</td><td class="center">上海</td><td>国家会展中心（上海）</td><td class="center">已举办</td></tr>
           <tr class="row-gray"><td class="center"><b>2024</b></td><td class="center">2024.07.12 - 07.14</td><td class="center">上海</td><td>国家会展中心（上海）</td><td class="center">已举办</td></tr>
           <tr class="row-gray"><td class="center"><b>2023</b></td><td class="center">2023.07.21 - 07.23</td><td class="center">上海</td><td>国家会展中心（上海）</td><td class="center">已举办</td></tr>
           <tr class="row-gray"><td class="center"><b>2021</b></td><td class="center">2021.07.09 - 07.11</td><td class="center">上海</td><td>国家会展中心（上海）</td><td class="center">已举办</td></tr>
         </tbody>
       </table>
+      <BwBilingual>
+        <Fragment slot="cn">以下是历届的开票时间，可供参考</Fragment>
+        <Fragment slot="jp">参考までに、過去の開催におけるチケット発売日を以下に示します。</Fragment>
+      </BwBilingual>
+
+      <table class="bw-table">
+        <thead>
+          <tr><th class="center">年份</th><th class="center">官宣日期</th><th class="center">一开日期</th><th class="center">二开日期</th><th class="center">备注</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-green"><td class="center"><b>2026</b></td><td class="center">6月8日 (周一)</td><td class="center"><u>预计 6月20日</u></td><td class="center"><u>预计 6月27日</u></td><td class="center"><b>当前</b></td></tr>
+          <tr class="row-gray"><td class="center"><b>2025</b></td><td class="center">6月9日 (周一)</td><td class="center">6月21日 (周六)</td><td class="center">6月28日 (周六)</td><td class="center">已举办</td></tr>
+          <tr class="row-gray"><td class="center"><b>2024</b></td><td class="center">6月5日 (周三)</td><td class="center">6月29日 (周六)</td><td class="center">7月6日 (周六)</td><td class="center">已举办</td></tr>
+          <tr class="row-gray"><td class="center"><b>2023</b></td><td class="center">6月16日 (周五)</td><td class="center">7月8日 (周六)</td><td class="center">7月14日 (周五)</td><td class="center">已举办</td></tr>
+        </tbody>
+      </table>
+      <BwCallout type="warn">
+        <div class="t">⚠️重要提醒</div>
+        <ul>
+          <li>一开中午12点为<b>大会员提前批</b>，票量较少</li>
+          <li>一开晚上18点为<b>正式开票</b></li>
+          <li>二开通常只有晚上18点一场，且通常没有三开</li>
+        </ul>
+      </BwCallout>
     </BwSection>
 
     <BwSection>
@@ -129,6 +153,10 @@ import {
           <tr><td class="center"><b>邀请函</b></td><td class="center">400-1500元</td><td>你将晚于上述所有票种入场</td><td class="center"><b>非公开售卖</b>，怨种预定</td></tr>
         </tbody>
       </table>
+      <div class="bw-figure">
+        <img src="https://i0.hdslb.com/bfs/new_dyn/a4b42617f942386a62f1f83bb6ba361c1945533399.png" alt="bw2025entry-guide" referrerPolicy="no-referrer">
+        <div class="bw-figcap">门票权益参考</div>
+      </div>
 
       <BwCallout type="warn">
         <div class="t">⚠️重要提醒</div>
@@ -137,7 +165,7 @@ import {
 
       <BwCallout type="warn">
         <div class="t">⚠️重要提醒</div>
-        <b>BW 购票需要B站用户等级 LV2 及以上的正式会员。</b>
+        BW 购票需要B站用户等级 LV2 及以上的正式会员。
       </BwCallout>
 
       <BwCallout type="warn">
@@ -147,26 +175,26 @@ import {
           <li>邀请函仅限18周岁以上入场</li>
           <li><code>BW</code> 采用强实名制入场，一人一票（函）。获得邀请函后，必须在参展日 <b><span class="hl">前一天18点前</span></b> 通过 <code>微信</code> 或 <code>哔哩哔哩APP</code> 扫码录入证件信息</li>
           <li>邀请函无法绑定 <code>【BW乐园】</code>，即 <b><span class="hl">无法参与BW预约活动和打卡抽奖活动</span></b></li>
-          <li>邀请函无法等级Cosplay装扮，因此无法cos入场</li>
+          <li>邀请函无法登记着装，因此<b><span class="hl">无法cosplay入场</span></b></li>
         </ul>
       </BwCallout>
     </BwSection>
 
     <BwSection>
       <h2>4、去哪里买票？ <BwBadge>チケット購入方法（オンライン）</BwBadge></h2>
-      <p>购票请认准 <code>BILIBILI会员购</code>，具体进入方式分为 哔哩哔哩APP - 下方菜单栏的【会员购】</p>
-      <ul>
-        <li><b>网页端现已停止售卖BW门票，仅限使用手机端购票！</li>
-        <li><b>【移动端/手机端】</b>：APP底部【会员购】→ 顶部【漫展演出】→ 搜索【bilibiliworld】或【bw】</li>
-      </ul>
-      <BwCallout type="info">
-        <div class="t">提醒</div>
-        从2024年开始，BW门票<code>大会员提前批</code>、<code>当日晚第一批</code>以及稍晚些时间的<code>第二批开票</code>，均不再支持网页端购票。
+      <p>购票请认准 <code>BILIBILI会员购</code>，具体进入方式为 APP底部【会员购】→ 顶部【漫展演出】→ 搜索【bilibiliworld】或【bw】</p>
+      <BwCallout type="warn">
+        <div class="t">⚠️重要提醒</div>
+        从2025年开始，BW门票均不再支持网页端购票！
       </BwCallout>
     </BwSection>
 
     <BwSection>
       <h2>5、抢票小Tips <BwBadge>Tips</BwBadge></h2>
+      <BwCallout type="warn">
+        <div class="t">⚠️重要提醒</div>
+        从2025年开始，BW门票可以提前预选【购票人】和【票种】
+      </BwCallout>
       <ol>
         <li><b><span class="hl">再次提醒</span>：购票需要B站用户LV2等级及以上的正式会员。</b></li>
         <li>每个B站账号可登记多个实名制信息（系统对"姓名+身份证号"真实性校验）。</li>
@@ -179,41 +207,82 @@ import {
 
     <BwSection>
       <h2>6、关于未成年购票 <BwBadge>Minor</BwBadge></h2>
-      <BwCallout type="warn">
-        <div class="t">漫展千万场，安全每一场！</div>
-      </BwCallout>
-      <p>自2024年开始，未成年购票政策可能有重大调整，参考如下（以官方最新为准）：</p>
-      <ul>
-        <li>a. 14周岁以上（有效身份证明出生日期为2012年7月10日及以前）的用户可购票。</li>
-        <li>c. 14周岁至未满18周岁（2008年7月09日之间至2012年7月10日之间）购票成功：需线上回传《未成年人入场安全承诺书》。承诺书开展前通过B站私信发送至购票账号；签字后以扫描件/照片上传至BW的邮箱（每年不一样，等官方公布）。</li>
-      </ul>
+      <BwUpdate theme="blue">
+        <BwLatest slot="latest" chip="BW2026 未成年人购票政策" range="2026.06.08 ~">
+          <ul>
+            <li>a. 14周岁以下（有效身份证明出生日期为2012年7月09日及以后）的用户<b>不可购票</b>。</li>
+            <li>b. 14周岁至未满18周岁（2008年7月09日之间至2012年7月10日之间）购票成功后，需线上回传《未成年人入场安全承诺书》。</li>
+            <li>c. 年满18周岁（2008年7月10日及以前）购票成功后，无需提交附加材料</li>
+            <li><b>《未成年人入场安全承诺书》会通过私信发送给购票B站账户</b></li>
+          </ul>
+        </BwLatest>
+      </BwUpdate>
+      <b>漫展千万场，安全每一场！</b>
     </BwSection>
 
     <BwSection>
       <h2>7、有关着装问题 <BwBadge>Dress</BwBadge></h2>
-      <p>同第6点所说，上海四叶草举办的漫展新增了部分要求：活动可能要求购票者向相关责任方登记入场着装信息，需购票APP内提示完成登记方可出票。登记信息仅用于活动安全有序举办，不会公开。</p>
-      <p>在选择IP时，会有提供一些默认的动漫IP可以选择，如果你想要出的IP不在列表里，可以选择【其他】，然后上传实拍COS图</p>
+      <p>2024年开始，上海大型漫展新增着装登记要求：活动要求购票者向相关责任方登记入场着装信息，需购票APP内提示完成登记方可出票。登记信息仅用于活动安全有序举办，不会公开。</p>
+      <p><b>在选择IP时，会有提供一些默认的动漫IP可以选择</b></p>
       <BwCallout type="warn">
         <div class="t">⚠️重要提醒</div>
-        <b>需要注意：所出的角色/IP不能为<a href="https://zwgk.mct.gov.cn/zfxxgkml/cyfz/202012/t20201206_918533.html" target=_blank>《文化部公布网络动漫产品“黑名单”》</a>中所罗列的IP！</b>
+        <b>需要注意：所出的角色/IP不能为<a href="https://www.mct.gov.cn/whzx/ggtz/201506/t20150610_695465.htm" target=_blank>《文化部公布网络动漫产品“黑名单”》</a>中所罗列的IP！</b>
       </BwCallout>
-      <p>BW2024关于着装要求（参考）：</p>
-      <blockquote>此次BW购票后需在订单页面申报是否Cosplay；审核通过后方可出票。为方便公共交通安检与快速入场，建议Cosplay用户穿便服乘坐公共交通；现场将设更衣间供更换（8.1馆、2.1馆）。</blockquote>
+      <div class="bw-figure">
+        <img src="https://i0.hdslb.com/bfs/new_dyn/769f32dd2aba5f3af83ee57973105fbf1945533399.png" alt="bw2025entry-guide" referrerPolicy="no-referrer">
+        <div class="bw-figcap">着装登记页面</div>
+      </div>
+
+      <BwCallout type="info">
+        <div class="t">如果你想出的角色/IP不在列表内，可以选择【其他】，然后上传自己的实拍COS图</div>
+      </BwCallout>
+      <div class="bw-figure">
+        <img src="https://i0.hdslb.com/bfs/new_dyn/341bddea92860d8811182853ff92d6791945533399.png" alt="bw2025entry-guide" referrerPolicy="no-referrer">
+        <div class="bw-figcap">图片上传要求</div>
+      </div>
+      <BwCallout type="warn">
+        <div class="t">⚠️重要提醒</div>
+        <ul>
+          <li><b>无论是否出COS，都需要填写着装登记表！如果不出，可选【否】</b></li>
+          <li><b><span class="hl">若在截止日期前未填写着装登记表，你的BW门票可能会被【退票】！！！</span></b></li>
+        </ul>
+      </BwCallout>
     </BwSection>
 
     <BwSection>
       <h2>8、关于饮品和食物 <BwBadge>Food</BwBadge></h2>
-      <p>场馆里面有饮料和吃的，但比较贵；可以自己提前备一点：矿泉水、红牛、小面包、士力架等即可。</p>
+      <BwCallout type="warn">
+        <div class="t">⚠️重要提醒</div>
+        <ul>
+          <li>请一定要吃完早饭再前往场馆！避免低血糖造成晕厥！</li>
+          <li><b>请注意食品安全，不要食用未知来源的食品，不喝离开过自己视线的饮料！</b></li>
+        </ul>
+      </BwCallout>
+      <ul>
+        <li><p>场馆里面有餐馆、便利店和售货机，不过价格相对外面会贵些（景区价）</p></li>
+        <li><p>可以去贩卖饮料的展商，如“冰红茶”“芬达”等展台购买，一般来说，他们会售卖原价的饮料</p></li>
+        <li><p>另外中午开始，餐馆人就比较多了，请合理安排规划时间</p></li>
+        <li><p>如果你不介意吃什么，建议提前在便利店或者超市购买一些即食食品带着，BW并不限制自带食品入场</p></li>
+        <li><p><b>请妥善处理产生的垃圾，保持环境整洁</b></p></li>
+      </ul>
     </BwSection>
 
     <BwSection>
       <h2>9、住宿 <BwBadge>Stay</BwBadge></h2>
+      <BwCallout type="warn">
+        <div class="t">⚠️重要提醒</div>
+        <ul>
+          <li>千万不要跟陌生人拼房，<b>即使你是男的，他也是男的</b></li>
+          <li>请注意锁好房门，不留贵重物品在房间内</li>
+        </ul>
+      </BwCallout>
       <p>住宿可选择在上海国家会展中心、地铁口附近等交通方便的地方订。建议提前订，距离BW开展越近价格越高。拼房最好是熟人；预算不高可选青旅和民宿。</p>
+      <p>其实住远一点也无所谓，可以考虑住郊区然后打车前往场馆</p>
     </BwSection>
 
     <BwSection>
       <h2>10、第一次来到上海？ <BwBadge>Shanghai</BwBadge></h2>
-      <p>抓了个沪✌🏻写写。看不懂，直接用高德/百度/腾讯导航搜索"上海国家会展中心"，跟着导航走。坐地铁建议去大都会买三日地铁票，无限乘。</p>
+      后面会补的
     </BwSection>
 
     <BwSection>
@@ -221,13 +290,13 @@ import {
       <p>BW2026入场指引具体细节暂未公布；下面为BW2025入场指引仅供参考，后续会更新。</p>
       <table class="bw-table">
         <thead>
-          <tr><th>出行方式</th><th>活动</th><th>详细说明</th></tr>
+          <tr><th style="width:120px">出行方式</th><th>详细说明</th></tr>
         </thead>
         <tbody>
-          <tr><td><b>自驾</b></td><td></td><td>等一个老哥来补充。</td></tr>
-          <tr><td><b>网约车/出租车</b></td><td>BW</td><td>① VIP票、邀请函、STAFF、展商、VOLUNTEER：打车至 <b><span class="hl">国家会展中心北广场（崧泽大道）-10号门</span></b>。<br/>② 普票：打车至 <b><span class="hl">国家会展中心（诸光路）-5/6/7号门</span></b>。<br/>※ 由于VIP与普票配票比例约 1:9，普票队伍可能极长。</td></tr>
-          <tr><td><b>地铁</b></td><td>BW&BML</td><td><b><span style="color:#00ff00">地铁2号线</span> - 国家会展中心</b>：沿通道步行至 4/5/6 号口出站。<br/><b><span style="color:#8b4513">地铁17号线</span> - 诸光路</b>：沿通道步行至 2号口出站。</td></tr>
-          <tr><td><b>公交车</b></td><td>BW&BML</td><td>徐泾东站(706路区间、710路、872路、1503路、1511路、1512路、青浦20路、青浦25路、徐泾2路区间、徐泾4路、徐泾5路)</td></tr>
+          <tr><td><b>自驾</b></td><td>不建议自驾前往场馆</td></tr>
+          <tr><td><b>网约车/出租车</b></td><td>① VIP票、邀请函、STAFF、展商、VOLUNTEER：打车至 <b><span class="hl">国家会展中心北广场（崧泽大道）-10号门</span></b>。<br/>② 普票：打车至 <b><span class="hl">国家会展中心（诸光路）-5/6/7号门</span></b>。<br/>※ 由于VIP与普票配票比例约 1:9，普票队伍可能极长。</td></tr>
+          <tr><td><b>地铁</b></td><td><b><span style="color:#00ff00">地铁2号线</span> - 国家会展中心</b>：沿通道步行至 4/5/6 号口出站。<br/><b><span style="color:#8b4513">地铁17号线</span> - 诸光路</b>：沿通道步行至 2号口出站。</td></tr>
+          <tr><td><b>公交车</b></td><td>徐泾东站(706路区间、710路、872路、1503路、1511路、1512路、青浦20路、青浦25路、徐泾2路区间、徐泾4路、徐泾5路)</td></tr>
         </tbody>
       </table>
       <BwCallout type="info">
@@ -241,22 +310,52 @@ import {
 
     <BwSection>
       <h2>12、集邮 <BwBadge>Photo</BwBadge></h2>
-      <p>注意事项：不要偷拍；不要化妆时找coser；要尊重老师。coser不容易。用手机集邮没问题，最好开美颜（谁都喜欢美）。第一次来不敢集邮可以找群友帮忙，一起集邮，慢慢就熟悉了。</p>
+      <BwCallout type="warn">
+        <div class="t">⚠️重要提醒</div>
+        <ul>
+          <li>不要偷拍COSER</li>
+          <li>不要在COSER化妆时找TA</li>
+          <li>请尊重COSER，不要做出过分的要求和举动</li>
+        </ul>
+      </BwCallout>
+      <ul>
+        <li>✅ 可以用手机集邮，最好开个美颜哦~（谁都喜欢美）</li>
+        <li>✅ 如果第一次来不敢集邮，可以求助群友帮忙</li>
+      </ul>
     </BwSection>
 
     <BwSection>
       <h2>13、无料 <BwBadge>Freebie</BwBadge></h2>
-      <p>如果有老师送的无料是食品的话，最好不要吃（害人之心不可有，防人之心不可无）。热门IP领无料需要排很久（一个小时以上），做好心理准备。</p>
+      <ul>
+        <li>💤 不建议准备和接收食品无料（害人之心不可有，防人之心不可无）</li>
+        <li>✅ 无料不在乎价值，只要是你的心意就好啦</li>
+        <li>‼️ 热门IP的无料需要排队很久很久（一个小时以上），请做好心理准备</li>
+      </ul>
     </BwSection>
 
     <BwSection>
       <h2>14、随身物品 <BwBadge>Carry</BwBadge></h2>
-      <p>以轻量化为主。<b><span class="hl">一定要带身份证（重要的事情说三遍）</span></b>。舒适背包（容量适当）；不出cos没必要带箱子；买谷会给大纸袋；小坐垫即可；没必要露营椅（小折叠塑料椅可以）；可带压缩背包；纸巾；充电宝；入耳/半入耳耳机（单人参展必带），两只耳朵交替戴防止漏消息。</p>
+      <BwCallout type="info">
+        <div class="t">建议轻量化为主，轻装上阵</div>
+      </BwCallout>
+      <ul>
+        <li>· 一定要带身份证！一定要带身份证！一定要带身份证！（重要的事情说三遍）</li>
+        <li>· 舒适背包（容量适当）</li>
+        <li>· 不出cos或者不搞灯阵没必要带箱子/露营车</li>
+        <li>· 可以带个小折叠凳或者坐垫，场馆内座位不是很多，大部分人都是席地而坐</li>
+        <li>· 记得带好纸巾、充电宝等生活物品</li>
+        <li>· 可以带个小风扇，排队或者热的时候吹吹风</li>
+      </ul>
     </BwSection>
 
     <BwSection>
       <h2>15、排队 <BwBadge>Queue</BwBadge></h2>
-      <p>一般两种：夜排与正常排。夜排指当天凌晨三点左右开始排队（适合舞台早、想占前排、或抢热门无料等）。否则不建议。正常排队建议十点以后入场：排队更短，场内气氛更活跃，但游玩时间更短；适合单纯cos或无明确目标游客。</p>
+      <BwCallout type="warn">
+        <div class="t">⚠️重要提醒</div>
+        <ul>
+          <b>为了您的健康和安全着想，请勿夜排！</b>
+        </ul>
+      </BwCallout>
     </BwSection>
 
     <BwSection>
@@ -266,17 +365,25 @@ import {
 
     <BwSection>
       <h2>17、衣着 <BwBadge>Clothes</BwBadge></h2>
-      <p>短袖即可；体寒者可带一件防晒衣厚度外套。室内空调很给力。</p>
+      <ul>
+        <li>普通游客穿着短袖即可</li>
+        <li>请不要穿着<b>过于暴露</b>的衣服，可能会被保安赶出去</li>
+        <li>虽然场馆内部有空调，但是人多的时候还是有点热的，所以如果你穿的很厚，要注意防止中暑！</li>
+      </ul>
     </BwSection>
 
     <BwSection>
       <h2>18、道具 <BwBadge>Props</BwBadge></h2>
-      <p>道具最好使用EVA和PVX管，最好不要超过两米。军宅准备的模型不要太逼真，做好无害化处理。</p>
+      <ul>
+        <li>最好选择塑料/泡沫等安全的道具</li>
+        <li>过长的道具可能会被安检拦下</li>
+        <li>具体禁带物品可参考BW入场要求</li>
+      </ul>
     </BwSection>
 
     <BwSection>
       <h2>19、票的数量 <BwBadge>Scale</BwBadge></h2>
-      <p>根据去年总共十万多的票量，今年保守预估十五万左右。</p>
+      <p>2025年门票大约3天共40万张，2026应该也差不多</p>
     </BwSection>
 
     <BwSection>
@@ -288,6 +395,7 @@ import {
       <h2>21、BW是否和BML冲突 <BwBadge>Schedule</BwBadge></h2>
       <p>BW是漫展：上午八点半到下午五点。BML是演唱会：下午六点到晚上十点。</p>
       <p>此外，自2024年开始，BML改为在国家会展中心（虹馆）举办，<s>还我梅菜篮子</s>，更不用担心冲突。</p>
+      <p><s>变成游戏演唱会哩TAT</s></p>
     </BwSection>
 
     <BwSection>
@@ -314,16 +422,6 @@ import {
     <BwSection>
       <h2>25、关于存包 <BwBadge>Storage</BwBadge></h2>
       <p>场馆内可以存包。按去年：普票存包20，VIP免费，先到先得。VIP票优先；普票满了VIP依旧可存。无论VIP还是普票都只可以存一个包。<b><span class="hl">VIP福袋不可以寄存。</span></b></p>
-    </BwSection>
-
-    <BwSection>
-      <h2>26、场馆内盥洗室位置 <BwBadge>Restroom</BwBadge></h2>
-      <p>往期（2024）年BW公众开放场馆内盥洗室布局如下图所示。届时展会内会存在许多高大立牌遮挡方位，难以快速定位，建议保存以备不时之需。</p>
-      <BwCallout type="warn">
-        <div class="t">提醒</div>
-        不排除个别盥洗室因为安全问题最终并未开放；请预留充足找寻时间，避免意外。
-      </BwCallout>
-      <p>※图还在制作，先占位放一下：<br/><img src="https://i1.hdslb.com/bfs/new_dyn/59abc283c22f0899d6091c9bffeeedbd1945533399.png" alt="bw2025entry-guide" referrerPolicy="no-referrer"></p>
     </BwSection>
   </div>
 </GuideLayout>

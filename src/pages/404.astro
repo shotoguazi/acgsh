@@ -1,0 +1,63 @@
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - 页面跑丢啦</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      display: flex; justify-content: center; align-items: center; min-height: 100vh;
+      background: linear-gradient(135deg, #fce4ec, #e8eaf6, #f3e5f5);
+      font-family: "Microsoft YaHei", "PingFang SC", -apple-system, sans-serif;
+    }
+    .container { text-align: center; padding: 40px 20px; max-width: 520px; }
+    h1 {
+      font-size: 100px; font-weight: 900;
+      background: linear-gradient(135deg, #f48fb1, #ce93d8);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      line-height: 1.1; letter-spacing: 8px;
+    }
+    p { font-size: 20px; color: #9575cd; margin: 16px 0 28px; font-weight: 500; }
+    .meme-box {
+      margin: 0 auto 36px; max-width: 400px; border-radius: 24px; overflow: hidden;
+      box-shadow: 0 8px 40px rgba(206, 147, 216, 0.3);
+    }
+    .meme-box img { display: block; width: 100%; height: auto; }
+    .btn-home {
+      display: inline-block; padding: 16px 56px; font-size: 20px; font-weight: 600;
+      background: linear-gradient(135deg, #f48fb1, #ce93d8); color: #fff;
+      text-decoration: none; border-radius: 50px;
+      box-shadow: 0 4px 20px rgba(206, 147, 216, 0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-home:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(206, 147, 216, 0.5); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>404</h1>
+    <p>唔…页面走丢啦 (｡•́︿•̀｡)</p>
+    <div class="meme-box">
+      <img id="meme" referrerPolicy="no-referrer" alt="404 表情包">
+    </div>
+    <a class="btn-home" href="https://acgsh.com">返回首页</a>
+  </div>
+  <script>
+    const memes2 = [
+      "https://i0.hdslb.com/bfs/new_dyn/dd918c827821a7d4cfa10047c2ee0c401945533399.png",
+      "https://i0.hdslb.com/bfs/new_dyn/dfad03895db37affb5b0d4834d32a2031945533399.png",
+      "https://i0.hdslb.com/bfs/new_dyn/eba4165d2ce81db3303042531750c0bd1945533399.png",
+      "https://i0.hdslb.com/bfs/new_dyn/99f0ee5a9860d58317a5e938801bf3701945533399.png",
+      "https://i0.hdslb.com/bfs/new_dyn/85648d196d512125a7294dbc730be1e41945533399.png",
+      "https://i0.hdslb.com/bfs/new_dyn/ad69fa546c83d334e9944b57e41977881945533399.png",
+      "https://i0.hdslb.com/bfs/new_dyn/a45d6bc6af05c56bd0c44d6a0e98a0811945533399.png",
+      "https://i0.hdslb.com/bfs/new_dyn/263a3102bc7980581051b1ef70d7acd51945533399.png",
+      "https://i0.hdslb.com/bfs/new_dyn/ebf3f4001fc3ca8bf6b7fb143de9c1b91945533399.png"
+    ];
+    document.getElementById("meme").src = memes2[Math.floor(Math.random() * memes2.length)];
+  </script>
+</body>
+</html>
