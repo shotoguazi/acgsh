@@ -1,58 +1,245 @@
 ---
 import GuideLayout from '@/layouts/GuideLayout.astro';
-import { BwCallout } from '@/components/bw/index';
+import { BwHero, BwSection, BwBadge, BwCallout, BwBilingual, BwUpdate, BwLatest, BwHistory } from '@/components/bw/index';
 ---
 
-<GuideLayout title="BML 2025 快速指南 - 魔都ACGN资讯站">
-  <h1>BML 2025 快速指南</h1>
-  <p><strong>VERSION.v1.2.6</strong></p>
+<GuideLayout title="BML 2026 快速指南 - 魔都ACGN资讯站">
+  <div class="bw-wrap">
+    <BwHero version="v1.3.0 BML2026">
+      <Fragment slot="title">
+        <h1>BILIBILI MACRO LINK 2026 新手快速指南</h1>
+      </Fragment>
+      <Fragment slot="subtitle">
+        <span>BILIBILI MACRO LINK 2026 初心者向けクイックガイド</span>
+      </Fragment>
+    </BwHero>
 
-  <h2>特别感谢</h2>
-  <p>谨代表 <strong>魔都ACGN管理组</strong> 全体成员，由衷感谢以下群体和个人对本指南编写提供的大力支持！</p>
-  <ul>
-    <li><strong>哔哩哔哩 弹幕网</strong> - 「再来一杯」</li>
-    <li><strong>魔都ACGN①-⑤群小伙伴们</strong> - 意见收集、初审排错</li>
-    <li><strong>@蓝熠、@Rogers、@酪西瓜</strong> - 网站运维、技术支持</li>
-    <li><strong>@沐雪、@诗酒落英</strong> - 内容撰写、文档排版</li>
-  </ul>
+    <BwSection>
+      <Fragment slot="default">
+        <h2>#、特别感谢 <BwBadge>Special Thanks🎉</BwBadge></h2>
+        <BwCallout>
+          <div class="t"><span class="hl u">谨代表 <code>魔都ACGN管理组</code> 全体成员</span></div>
+          由衷感谢以下群体和个人对本指南编写提供的大力支持！
+        </BwCallout>
+        <div class="thanks-grid">
+          <div class="thanks-item">
+            <div class="thanks-name"><code>哔哩哔哩 (゜-゜)つロ 干杯~</code> 弹幕网</div>
+            <div class="thanks-desc">「再来一杯🍻」</div>
+          </div>
+          <div class="thanks-item">
+            <div class="thanks-name">魔都ACGN① - ⑤群小伙伴们</div>
+            <div class="thanks-desc">意见收集、用户初审</div>
+          </div>
+          <div class="thanks-item">
+            <div class="thanks-name">@红暮、@Rogers、@是瓜子酱</div>
+            <div class="thanks-desc">网站运维、技术支持</div>
+          </div>
+          <div class="thanks-item">
+            <div class="thanks-name">@沐雪、@诗酒落英、@潘未来</div>
+            <div class="thanks-desc">内容撰写、文档排版</div>
+          </div>
+        </div>
+      </Fragment>
+    </BwSection>
 
-  <h2>0、写在前面</h2>
-  <p>临近 <code>BML</code> 展会举办，各种官方与非官方消息铺天盖地...</p>
-  <p>在群主 <a href="https://space.bilibili.com/80667791">@是瓜子酱</a> 的授意下，魔都ACGN管理组起草并收集了目前各个渠道公开且已验证的指南信息，供大家参考。</p>
+    <BwSection>
+      <h2>1、BML是什么？</h2>
+      <BwBilingual>
+        <Fragment slot="cn">BML全称 <code>BILIBILI MACRO LINK</code>。是由 BILIBILI 自2013年起创办的大型B站线下演唱会，内容涵盖了 B站UP、国内外艺人（歌手、声优）、虚拟UP、虚拟歌姬 等的综合性线下演出。</Fragment>
+      </BwBilingual>
 
-  <h2>1、什么是BML？</h2>
-  <p>BML全称 BILIBILI MACRO LINK。是由 BILIBILI 自2013年起创造的大型B站线下演唱会，内容涵盖了 B站UP、国内外艺人（歌手、声优）、虚拟UP、虚拟歌姬 等的综合性线下演出。</p>
-  <p><strong>简单来说，就是一个B站基因的 <code>演唱会</code>。</strong></p>
+      <BwCallout type="info">
+        <div class="t">一句话总结</div>
+        简单来说，就是一个B站基因的 <b>演唱会</b>。
+      </BwCallout>
 
-  <h2>2、什么时候开票？</h2>
-  <table>
-    <thead><tr><th>波次</th><th>说明</th><th>开票时间</th></tr></thead>
-    <tbody>
-      <tr><td>波次1</td><td>大会员抢先购</td><td>6月22日12点</td></tr>
-      <tr><td>波次2</td><td>正式开票</td><td>6月22日18点</td></tr>
-    </tbody>
-  </table>
+      <BwUpdate theme="red">
+        <BwLatest slot="latest" chip="⚠️重要提醒" range="2026.06.09 ~">
+          <b>关于 BML2026 的参与提醒</b>
+          <ul>
+            <li>因日本首相高市早苗 2025 年末发表涉台、涉华错误言论，严重伤害民族感情，国内多地漫展、线下演唱会已全面移除涉日相关内容，部分日方 IP、嘉宾、舞台与周边均做下架或取消处理。</li>
+            <li>受整体氛围与监管要求影响，BML2026 存在内容调整、日方环节取消等情况。</li>
+          </ul>
+          <b>重要提醒</b>
+          <ul>
+            <li>请理性看待内容调整，以官方通知为准，不信谣不传谣。</li>
+            <li>我们会持续同步 BML2026 最新消息，提醒大家合理安排行程与准备。</li>
+          </ul>
+          <b>热爱不分立场，底线必须坚守。感谢大家的理解与配合。</b>
+        </BwLatest>
+      </BwUpdate>
+    </BwSection>
 
-  <h2>3、票价</h2>
-  <table>
-    <thead><tr><th>票种</th><th>价格</th><th>备注</th></tr></thead>
-    <tbody>
-      <tr><td>S</td><td>1380元</td><td>数量极其稀少</td></tr>
-      <tr><td>A</td><td>1180元</td><td>超值体验</td></tr>
-      <tr><td>B</td><td>980元</td><td>还不错</td></tr>
-      <tr><td>C</td><td>680元</td><td>一般</td></tr>
-      <tr><td>D</td><td>380元</td><td>山顶的朋友</td></tr>
-    </tbody>
-  </table>
-  <p>座次按<strong>付款顺序</strong>出票（非下单顺序）。</p>
+    <BwSection>
+      <h2>2、什么时候开票？ </h2>
+      <BwBilingual>
+        <Fragment slot="cn">每年 <code>BW</code> 的举办时间相对固定，一般为暑期7月份前后，开票时间为活动举办日的 <b>前2周</b>。</Fragment>
+      </BwBilingual>
 
-  <h2>4、去哪里买票？</h2>
-  <p>购票请认准 bilibili会员购。</p>
-  <p><strong>网页端</strong>：浏览器进入 bilibili会员购，搜索【bilibilimacrolink】</p>
-  <p><strong>移动端</strong>：APP底部【会员购】→【漫展演出】→搜索【bilibilimacrolink】</p>
+      <table class="bw-table">
+        <thead>
+          <tr><th class="center">年份</th><th class="center">举办时间</th><th class="center">城市</th><th class="center">举办地点</th><th class="center">备注</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-green"><td class="center"><b>2026</b></td><td class="center">2026.07.11 - 07.12</td><td class="center">上海</td><td>国家会展中心（上海）虹馆EH</td><td class="center"><b>当前</b></td></tr>
+          <tr class="row-gray"><td class="center"><b>2025</b></td><td class="center">2025.07.11 - 07.13</td><td class="center">上海</td><td>国家会展中心（上海）虹馆EH</td><td class="center">已举办</td></tr>
+          <tr class="row-gray"><td class="center"><b>2024</b></td><td class="center">2024.07.13 - 07.14</td><td class="center">上海</td><td>国家会展中心（上海）虹馆EH</td><td class="center">已举办</td></tr>
+          <tr class="row-gray"><td class="center"><b>2023</b></td><td class="center">2023.07.22</td><td class="center">上海</td><td>上海梅赛德斯-奔驰文化中心</td><td class="center">已举办</td></tr>
+          <tr class="row-gray"><td class="center"><b>2021</b></td><td class="center">2021.07.09 - 07.11</td><td class="center">上海</td><td>上海梅赛德斯-奔驰文化中心</td><td class="center">已举办</td></tr>
+        </tbody>
+      </table>
+      <BwCallout type="warn">
+        <div class="t">⚠️重要提醒</div>
+        <ul>
+          <li>一开中午12点为<b>大会员提前批</b>，票量较少</li>
+          <li>一开晚上18点为<b>正式开票</b></li>
+          <li>二开通常只有晚上18点一场，且通常没有三开</li>
+        </ul>
+      </BwCallout>
+    </BwSection>
 
-  <BwCallout type="warn">
-    <div class="t">注意</div>
-    BML 购票需要 B站用户 LV2 等级及以上的正式会员。iPad 端没有会员购入口。
-  </BwCallout>
+    <BwSection>
+      <h2>3、票价多少，有哪几个票种？</h2>
+
+      <table class="bw-table">
+        <thead>
+          <tr><th class="center">票种</th><th class="center">价格<br/></th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="center"><b>S档</b></td><td class="center">1380元</td></tr>
+          <tr><td class="center"><b>A档</b></td><td class="center">1180元</td></tr>
+          <tr><td class="center"><b>B档</b></td><td class="center">980元</td></tr>
+          <tr><td class="center"><b>C档</b></td><td class="center">780元</td></tr>
+          <tr><td class="center"><b>D档</b></td><td class="center">580元</td></tr>
+          <tr><td class="center"><b>E档</b></td><td class="center">380元</td></tr>
+          <tr><td class="center"><b>纪念联票</b></td><td class="center">808-1308元</td></tr>
+        </tbody>
+      </table>
+      <div class="bw-figure">
+        <img src="https://i2.hdslb.com/bfs/new_dyn/9de7351b20b2ff9700a08802b6cfe9ca1945533399.jpg" alt="BML2025座位图" referrerPolicy="no-referrer">
+        <div class="bw-figcap">座位图参考</div>
+      </div>
+
+      <BwCallout type="warn">
+        <div class="t">⚠️重要提醒</div>
+        <b>购票纪念联票的用户如现场未领取纪念品的，视为放弃。活动后不予补发。</b>
+      </BwCallout>
+
+      <BwCallout type="warn">
+        <div class="t">⚠️重要提醒</div>
+        BML 购票需要B站用户等级 LV2 及以上的正式会员。
+      </BwCallout>
+    </BwSection>
+
+    <BwSection>
+      <h2>4、携带物品</h2>
+        <ul>
+          <li>建议轻装上阵，座位空间较小，可能无法存放过多的物品</li>
+          <li>虹馆门口有寄存柜可以存放大件物品，但是数量有限，先到先得</li>
+          <li>请不要携带违禁物品进入BML现场</li>
+        </ul>
+      <div class="bw-figure">
+        <img src="https://i0.hdslb.com/bfs/openplatform/202506/OlC7upWL1751019321420.jpeg" alt="BML2025禁限携带物品" referrerPolicy="no-referrer">
+        <div class="bw-figcap">BML2025禁限携带物品清单</div>
+      </div>
+    </BwSection>
+
+  </div>
 </GuideLayout>
+
+<style>
+  .bw-wrap {
+    max-width: 1400px;
+    margin: 18px auto 60px;
+    padding: 0 14px;
+    color: var(--text);
+    font-size: var(--base);
+    line-height: 1.75;
+  }
+
+  .bw-table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: var(--radius);
+    border: var(--border);
+    margin-top: 10px;
+  }
+
+  .bw-table th, .bw-table td {
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+
+  .bw-table th {
+    text-align: left;
+    color: var(--muted);
+    font-weight: 700;
+    background: rgba(0, 0, 0, .02);
+  }
+
+  .bw-table tr:last-child td { border-bottom: 0; }
+  .bw-table .center { text-align: center; }
+
+  .row-green { background: rgba(0, 200, 83, .10); }
+  .row-yellow { background: rgba(249, 168, 37, .12); }
+  .row-gray { background: rgba(154, 164, 178, .10); opacity: .9; }
+
+  .thanks-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .thanks-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 12px 14px;
+    border-radius: 14px;
+    border: var(--border);
+    background: rgba(0, 0, 0, .02);
+    transition: all .18s ease;
+  }
+
+  .thanks-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow2);
+  }
+
+  .thanks-name { font-weight: 800; color: var(--text); }
+  .thanks-desc { color: var(--muted); white-space: nowrap; }
+
+  .hl { color: var(--brand); font-weight: 900; }
+  .u { text-decoration: underline; text-underline-offset: 3px; }
+
+  .bw-figure {
+    margin: 12px 0 0;
+    border: var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: rgba(0,0,0,.02);
+  }
+
+  .bw-figure img { width: 100%; display: block; }
+
+  .bw-figcap {
+    padding: 10px 12px;
+    font-size: var(--small);
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+  }
+
+  .bw-section p { margin: 8px 0; }
+  .bw-section ul, .bw-section ol { margin: 8px 0; padding-left: 20px; }
+  .bw-section li { margin: 4px 0; }
+
+  @media (max-width: 520px) {
+    .thanks-item { flex-direction: column; }
+    .thanks-desc { white-space: normal; }
+  }
+</style>
+
