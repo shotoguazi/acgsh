@@ -1,46 +1,162 @@
 ---
 import GuideLayout from '@/layouts/GuideLayout.astro';
+import { BwHero, BwSection, BwBadge, BwCallout, BwBilingual, BwUpdate, BwLatest, BwHistory } from '@/components/bw/index';
 ---
 
-<GuideLayout title="ChinaJoy 门票说明 - 魔都ACGN资讯站">
-  <h1>2024 ChinaJoy 门票说明</h1>
+<GuideLayout title="ChinaJoy 2026 快速指南 - 魔都ACGN资讯站">
+  <div class="bw-wrap">
+    <BwHero version="v0.1.0 CJ2026">
+      <Fragment slot="title">
+        <h1>ChinaJoy 2026 新手快速指南</h1>
+      </Fragment>
+      <Fragment slot="subtitle">
+        <span>ChinaJoy 2026 初心者向けクイックガイド</span>
+      </Fragment>
+    </BwHero>
 
-  <h2>售票日期</h2>
-  <ul>
-    <li><strong>6月27日 12:00</strong> 超级早鸟票</li>
-    <li><strong>6月29日 12:00</strong> 早鸟票</li>
-    <li><strong>7月2日 12:00</strong> 正式售票</li>
-  </ul>
+    <BwSection>
+      <h2>1、ChinaJoy是什么？</h2>
+      <BwBilingual>
+        <Fragment slot="cn">ChinaJoy全称中国国际数码互动娱乐展览会，涵盖游戏、动漫、电竞等多种数字娱乐领域内容。ChinaJoy每年于7月31日左右在上海新国际博览中心举办，为期4天，每年吸引超40万游客、从业者参加，是当今全球数字娱乐领域最具知名度与影响力的年度盛会之一。</Fragment>
+      </BwBilingual>
+      <BwCallout type="info">
+        今年的ChinaJoy将于 <b>7月31日-8月3日</b> 在 <b>上海新国际博览中心</b> 举办。
+      </BwCallout>
+    </BwSection>
 
-  <h2>日常服装通道价格</h2>
-  <table>
-    <thead>
-      <tr><th>日期</th><th>VIP</th><th>超级早鸟</th><th>早鸟</th><th>正式售卖</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>周五 7/26</td><td>350</td><td>150</td><td>160</td><td>180</td></tr>
-      <tr><td>周六 7/27</td><td>350</td><td>160</td><td>170</td><td>180</td></tr>
-      <tr><td>周日 7/28</td><td>350</td><td>160</td><td>170</td><td>180</td></tr>
-      <tr><td>周一 7/29</td><td>350</td><td>90</td><td>100</td><td>110</td></tr>
-    </tbody>
-  </table>
+    <BwSection>
+      <h2>2、什么时候开票？ </h2>
+        <ul>
+          <li>ChinaJoy2026的门票还未发售</li>
+        </ul>
+    </BwSection>
 
-  <h2>退票手续费</h2>
-  <table>
-    <thead><tr><th>截止时间</th><th>手续费</th></tr></thead>
-    <tbody>
-      <tr><td>7月19日 00:00</td><td>0%</td></tr>
-      <tr><td>7月21日 00:00</td><td>40%</td></tr>
-      <tr><td>7月23日 00:00</td><td>80%</td></tr>
-      <tr><td>之后</td><td>留着玩吧</td></tr>
-    </tbody>
-  </table>
+    <BwSection>
+      <h2>3、票价多少，有哪几个票种？</h2>
 
-  <h2>须知</h2>
-  <ul>
-    <li>携带好身份证，没身份证的需提前办理好</li>
-    <li>14周岁以下未成年人不让进</li>
-    <li>展会现场无售票点</li>
-    <li>COSPLAY 需审核服装道具且无 VIP 通道</li>
-  </ul>
+      <BwCallout type="warn">
+        <div class="t">⚠️重要提醒</div>
+        今年的ChinaJoy<b>尚未开票</b>，以下为2025年ChinaJoy的常规门票参考
+      </BwCallout>
+      <table class="bw-table">
+        <thead>
+          <tr><th class="center">票种</th><th class="center">早鸟票价格</th><th class="center">正式售票价格</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="center"><b>周五普通票</b></td><td class="center">160元</td><td class="center">180元</td></tr>
+          <tr><td class="center"><b>周六、周日普通票</b></td><td class="center">170元</td><td class="center">180元</td></tr>
+          <tr><td class="center"><b>周一普通票</b></td><td class="center">100元</td><td class="center">110元</td></tr>
+          <tr><td class="center"><b>单日VIP票</b></td><td class="center" colspan="2">350元</td></tr>
+          <tr><td class="center"><b>四日VIP套票</b></td><td class="center" colspan="2">1180元</td></tr>
+        </tbody>
+      </table>
+
+      <BwCallout type="warn">
+        <div class="t">⚠️重要提醒</div>
+          <ul>
+            <li>普通票从1号入口厅排队入场，VIP票从4号门快速入场</li>
+            <li>VIP观众可以在N2、N4、E5、E7免费存包</li>
+            <li>普通票仅限<b>单日单次入场</b>，VIP票可以<b>当日无限次入场</b></li>
+          </ul>
+      </BwCallout>
+    </BwSection>
+
+  </div>
 </GuideLayout>
+
+<style>
+  .bw-wrap {
+    max-width: 1400px;
+    margin: 18px auto 60px;
+    padding: 0 14px;
+    color: var(--text);
+    font-size: var(--base);
+    line-height: 1.75;
+  }
+
+  .bw-table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: var(--radius);
+    border: var(--border);
+    margin-top: 10px;
+  }
+
+  .bw-table th, .bw-table td {
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+
+  .bw-table th {
+    text-align: left;
+    color: var(--muted);
+    font-weight: 700;
+    background: rgba(0, 0, 0, .02);
+  }
+
+  .bw-table tr:last-child td { border-bottom: 0; }
+  .bw-table .center { text-align: center; }
+
+  .row-green { background: rgba(0, 200, 83, .10); }
+  .row-yellow { background: rgba(249, 168, 37, .12); }
+  .row-gray { background: rgba(154, 164, 178, .10); opacity: .9; }
+
+  .thanks-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .thanks-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 12px 14px;
+    border-radius: 14px;
+    border: var(--border);
+    background: rgba(0, 0, 0, .02);
+    transition: all .18s ease;
+  }
+
+  .thanks-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow2);
+  }
+
+  .thanks-name { font-weight: 800; color: var(--text); }
+  .thanks-desc { color: var(--muted); white-space: nowrap; }
+
+  .hl { color: var(--brand); font-weight: 900; }
+  .u { text-decoration: underline; text-underline-offset: 3px; }
+
+  .bw-figure {
+    margin: 12px 0 0;
+    border: var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: rgba(0,0,0,.02);
+  }
+
+  .bw-figure img { width: 100%; display: block; }
+
+  .bw-figcap {
+    padding: 10px 12px;
+    font-size: var(--small);
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+  }
+
+  .bw-section p { margin: 8px 0; }
+  .bw-section ul, .bw-section ol { margin: 8px 0; padding-left: 20px; }
+  .bw-section li { margin: 4px 0; }
+
+  @media (max-width: 520px) {
+    .thanks-item { flex-direction: column; }
+    .thanks-desc { white-space: normal; }
+  }
+</style>
+
