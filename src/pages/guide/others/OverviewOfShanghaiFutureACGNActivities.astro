@@ -1,22 +1,178 @@
 ---
 import GuideLayout from '@/layouts/GuideLayout.astro';
+import {
+  BwHero, BwSection, BwBadge, BwCallout,
+  BwUpdate, BwLatest, BwHistory, BwBilingual,
+} from '@/components/bw/index';
 ---
 
 <GuideLayout title="上海未来大型活动一览 - 魔都ACGN资讯站">
-  <h1>上海未来大型活动一览</h1>
+  <div class="bw-wrap">
 
-  <h2>Bilibili World 2026</h2>
-  <ul>
-    <li><strong>时间</strong>：2026.07.10 - 07.12</li>
-    <li><strong>地点</strong>：国家会展中心（上海）</li>
-    <li><strong>状态</strong>：预计</li>
-  </ul>
+    <BwHero version="v2026.06.10 Latest">
+      <Fragment slot="title">
+        <h1>上海未来大型活动一览</h1>
+      </Fragment>
+      <Fragment slot="subtitle">
+        <span>本页面收录了部分上海的展览、演出等活动！</span>
+      </Fragment>
+    </BwHero>
 
-  <h2>ChinaJoy 2025</h2>
-  <ul>
-    <li><strong>时间</strong>：2025年7月（预计）</li>
-    <li><strong>地点</strong>：上海新国际博览中心</li>
-  </ul>
+    <BwSection>
+      <h2>Bilibili World 2026</h2>
+      <BwBilingual>
+        <Fragment slot="cn">BW全称 <code>BILIBILI WORLD</code>。是一场由B站主办的，以 <code>ACGN文化</code> 为主题的大型线下活动，致力于拉进创作者和粉丝的距离，为所有ACGN文化爱好者提供沉浸式体验的场景和线下交流的平台。</Fragment>
+      </BwBilingual>
 
-  <p>更多活动信息持续更新中...</p>
+      <BwCallout type="info">
+        该活动有详细文档：<a href="/guide/exhibit/BilibiliWorldBasicInfo/">BILIBILI WORLD 2026 新手快速指南</a>
+      </BwCallout>
+
+      <ul>
+        <li>举办日期：2026年7月10日 (周五) - 12日 (周日)</li>
+        <li>举办地点：国家会展中心（上海）</li>
+      </ul>
+
+      <div class="bw-figure">
+        <img src="https://i0.hdslb.com/bfs/activity-plat/static/20260601/ab7d0705cc5350aa3cc844d35b41cabf/U9ZY0WPYp5.jpg" alt="BW2026" referrerPolicy="no-referrer">
+      </div>
+    </BwSection>
+
+    <BwSection>
+      <h2>Bilibili Macro Link 2026</h2>
+      <BwBilingual>
+        <Fragment slot="cn">BML全称 <code>BILIBILI MACRO LINK</code>。是由 BILIBILI 自2013年起创办的大型线下演唱会，不过今年似乎是游戏Live，不知道具体内容如何。</Fragment>
+      </BwBilingual>
+
+      <BwCallout type="info">
+        该活动有详细文档：<a href="/guide/concert/BilibiliMacroLinkBasicInfo/">BILIBILI WORLD 2026 新手快速指南</a>
+      </BwCallout>
+
+      <ul>
+        <li>举办日期：2026年7月11日 (周六) - 12日 (周日)</li>
+        <li>举办地点：国家会展中心（上海）虹馆EH</li>
+      </ul>
+
+      <div class="bw-figure">
+        <img src="https://i0.hdslb.com/bfs/activity-plat/static/20250804/a2df9e9bee199c31962b1dc9f790f3c2/aru8nnwrcl.jpg@1920w_1080h_1c.avif" alt="BML2026" referrerPolicy="no-referrer">
+      </div>
+    </BwSection>
+
+    <BwSection>
+      <h2>ChinaJoy 2026</h2>
+      <BwBilingual>
+        <Fragment slot="cn">ChinaJoy全称中国国际数码互动娱乐展览会，涵盖游戏、动漫、电竞等多种数字娱乐领域内容。ChinaJoy每年于7月31日左右在上海新国际博览中心举办，为期4天，每年吸引超40万游客、从业者参加，是当今全球数字娱乐领域最具知名度与影响力的年度盛会之一。</Fragment>
+      </BwBilingual>
+
+      <ul>
+        <li>举办日期：2026年7月31日 (周五) - 8月3日 (周一)</li>
+        <li>举办地点：上海新国际博览中心</li>
+      </ul>
+
+      <div class="bw-figure">
+        <img src="https://i2.hdslb.com/bfs/new_dyn/1e783fe7da4b97d6981cb56ded1aa4a4388652563.png" alt="CJ2026" referrerPolicy="no-referrer">
+      </div>
+    </BwSection>
+
+    <p><br>更多活动信息持续更新中……</p>
+
+
+  </div>
 </GuideLayout>
+
+<style>
+  .bw-wrap {
+    max-width: 1400px;
+    margin: 18px auto 60px;
+    padding: 0 14px;
+    color: var(--text);
+    font-size: var(--base);
+    line-height: 1.75;
+  }
+
+  .bw-table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: var(--radius);
+    border: var(--border);
+    margin-top: 10px;
+  }
+
+  .bw-table th, .bw-table td {
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+
+  .bw-table th {
+    text-align: left;
+    color: var(--muted);
+    font-weight: 700;
+    background: rgba(0, 0, 0, .02);
+  }
+
+  .bw-table tr:last-child td { border-bottom: 0; }
+  .bw-table .center { text-align: center; }
+  .bw-table a { color: black; }
+
+  .row-green { background: rgba(0, 200, 83, .10); }
+  .row-yellow { background: rgba(249, 168, 37, .12); }
+  .row-gray { background: rgba(154, 164, 178, .10); opacity: .9; }
+
+  .thanks-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .thanks-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 12px 14px;
+    border-radius: 14px;
+    border: var(--border);
+    background: rgba(0, 0, 0, .02);
+    transition: all .18s ease;
+  }
+
+  .thanks-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow2);
+  }
+
+  .thanks-name { font-weight: 800; color: var(--text); }
+  .thanks-desc { color: var(--muted); white-space: nowrap; }
+
+  .hl { color: var(--brand); font-weight: 900; }
+  .u { text-decoration: underline; text-underline-offset: 3px; }
+
+  .bw-figure {
+    margin: 12px 0 0;
+    border: var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: rgba(0,0,0,.02);
+  }
+
+  .bw-figure img { width: 100%; display: block; }
+
+  .bw-figcap {
+    padding: 10px 12px;
+    font-size: var(--small);
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+  }
+
+  .bw-section p { margin: 8px 0; }
+  .bw-section ul, .bw-section ol { margin: 8px 0; padding-left: 20px; }
+  .bw-section li { margin: 4px 0; }
+
+  @media (max-width: 520px) {
+    .thanks-item { flex-direction: column; }
+    .thanks-desc { white-space: normal; }
+  }
+</style>
