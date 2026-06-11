@@ -45,7 +45,7 @@ import {
       </Fragment>
     </BwSection>
 
-    <BwSection>
+    <BwSection id="0">
       <h2>0、写在前面 <BwBadge>冒頭にあたって</BwBadge></h2>
       <p>又到了一年一度 <code>BW</code> 展会举办前夕...</p>
       <p>鉴于此，在群主 <a href="https://space.bilibili.com/80667791">@是瓜子酱</a> 的授意下，<code>魔都ACGN管理组</code> 起草并收集了目前大部分渠道公开且已经过验证的指南信息，供大家参考。</p>
@@ -63,7 +63,7 @@ import {
       <p>指南编写涉及众多，虽已经过管理组的细心校对，但仍难免出现疏漏，恳请您不吝指出，以便我们及时改进，感谢您的理解与支持！</p>
     </BwSection>
 
-    <BwSection>
+    <BwSection id="1">
       <h2>1、BW是什么？ <BwBadge>BWとは？</BwBadge></h2>
       <BwBilingual>
         <Fragment slot="cn">BW全称 <code>BILIBILI WORLD</code>。是一场由B站主办的，以 <code>ACGN文化</code> 为主题的大型线下活动，致力于拉进创作者和粉丝的距离，为所有ACGN文化爱好者提供沉浸式体验的场景和线下交流的平台。</Fragment>
@@ -93,7 +93,7 @@ import {
       </BwUpdate>
     </BwSection>
 
-    <BwSection>
+    <BwSection id="2">
       <h2>2、什么时候开票？ <BwBadge>チケット販売期間</BwBadge></h2>
       <BwBilingual>
         <Fragment slot="cn">每年 <code>BW</code> 的举办时间相对固定，一般为暑期7月份前后，开票时间为活动举办日的 <b>前2周</b>。</Fragment>
@@ -138,7 +138,7 @@ import {
       </BwCallout>
     </BwSection>
 
-    <BwSection>
+    <BwSection id="3">
       <h2>3、票价多少，有哪几个票种？ <BwBadge>チケットの種類・価格一覧</BwBadge></h2>
 
       <table class="bw-table">
@@ -180,7 +180,7 @@ import {
       </BwCallout>
     </BwSection>
 
-    <BwSection>
+    <BwSection id="4">
       <h2>4、去哪里买票？ <BwBadge>チケット購入方法（オンライン）</BwBadge></h2>
       <p>购票请认准 <code>BILIBILI会员购</code>，具体进入方式为 APP底部【会员购】→ 顶部【漫展演出】→ 搜索【bilibiliworld】或【bw】</p>
       <BwCallout type="warn">
@@ -189,7 +189,7 @@ import {
       </BwCallout>
     </BwSection>
 
-    <BwSection>
+    <BwSection id="5">
       <h2>5、抢票小Tips <BwBadge>Tips</BwBadge></h2>
       <BwCallout type="warn">
         <div class="t">⚠️重要提醒</div>
@@ -205,8 +205,43 @@ import {
       </ol>
     </BwSection>
 
-    <BwSection>
-      <h2>6、关于未成年购票 <BwBadge>Minor</BwBadge></h2>
+    <BwSection id="6">
+      <h2>6、添加购票人 <BwBadge>Buyer</BwBadge></h2>
+      <BwCallout type="warn">
+        <div class="t">⚠️重要提醒</div>
+        BW是<b>强实名项目</b>，购票、入场都需要身份证！！！
+      </BwCallout>
+      <ul>
+        <li>Step.1 打开<b>哔哩哔哩</b>APP</li>
+        <li>Step.2 在下方菜单栏找到<b>会员购</b></li>
+        <div class="bw-figure">
+          <img src="https://i0.hdslb.com/bfs/new_dyn/ace3e8d8774b55b37303458d336523731945533399.jpg" alt="会员购" referrerPolicy="no-referrer">
+        </div>
+        <li>Step.3 在上方功能区点击<b>个人中心</b></li>
+        <div class="bw-figure">
+          <img src="https://i0.hdslb.com/bfs/new_dyn/0cd8cd6e0a81d149b6b8e991d702106f1945533399.jpg" alt="会员购" referrerPolicy="no-referrer">
+        </div>
+        <li>Step.4 在个人中心页面找到<b>购买人信息</b>按钮</li>
+        <div class="bw-figure">
+          <img src="https://i0.hdslb.com/bfs/new_dyn/3c15d750de3f5bad76ab0d5e55f1969d1945533399.jpg" alt="会员购" referrerPolicy="no-referrer">
+        </div>
+        <li>Step.5 点击<b>添加实名信息</b></li>
+        <div class="bw-figure">
+          <img src="https://i0.hdslb.com/bfs/new_dyn/c4d380f82dbeedad7d814617d4c9defb1945533399.jpg" alt="会员购" referrerPolicy="no-referrer">
+        </div>
+        <li>Step.5 添加<b>真实身份信息</b></li>
+        <BwCallout type="warn">
+          <div class="t">⚠️重要提醒</div>
+          谁去BW填谁的身份证！现场需要<b>本人持身份证原件+人脸识别</b>入场！不可转让！！！
+        </BwCallout>
+        <div class="bw-figure">
+          <img src="https://i0.hdslb.com/bfs/new_dyn/7bb6e3c405c471e7240fbbb35871e8561945533399.jpg" alt="会员购" referrerPolicy="no-referrer">
+        </div>
+      </ul>
+    </BwSection>
+
+    <BwSection id="7">
+      <h2>7、关于未成年购票 <BwBadge>Minor</BwBadge></h2>
       <BwUpdate theme="blue">
         <BwLatest slot="latest" chip="BW2026 未成年人购票政策" range="2026.06.08 ~">
           <ul>
@@ -220,8 +255,8 @@ import {
       <b>漫展千万场，安全每一场！</b>
     </BwSection>
 
-    <BwSection>
-      <h2>7、有关着装问题 <BwBadge>Dress</BwBadge></h2>
+    <BwSection id="8">
+      <h2>8、有关着装问题 <BwBadge>Dress</BwBadge></h2>
       <p>2024年开始，上海大型漫展新增着装登记要求：活动要求购票者向相关责任方登记入场着装信息，需购票APP内提示完成登记方可出票。登记信息仅用于活动安全有序举办，不会公开。</p>
       <p><b>在选择IP时，会有提供一些默认的动漫IP可以选择</b></p>
       <BwCallout type="warn">
@@ -249,8 +284,8 @@ import {
       </BwCallout>
     </BwSection>
 
-    <BwSection>
-      <h2>8、关于饮品和食物 <BwBadge>Food</BwBadge></h2>
+    <BwSection id="9">
+      <h2>9、关于饮品和食物 <BwBadge>Food</BwBadge></h2>
       <BwCallout type="warn">
         <div class="t">⚠️重要提醒</div>
         <ul>
@@ -267,8 +302,8 @@ import {
       </ul>
     </BwSection>
 
-    <BwSection>
-      <h2>9、住宿 <BwBadge>Stay</BwBadge></h2>
+    <BwSection id="10">
+      <h2>10、住宿 <BwBadge>Stay</BwBadge></h2>
       <BwCallout type="warn">
         <div class="t">⚠️重要提醒</div>
         <ul>
@@ -280,13 +315,13 @@ import {
       <p>其实住远一点也无所谓，可以考虑住郊区然后打车前往场馆</p>
     </BwSection>
 
-    <BwSection>
-      <h2>10、第一次来到上海？ <BwBadge>Shanghai</BwBadge></h2>
+    <BwSection id="11">
+      <h2>11、第一次来到上海？ <BwBadge>Shanghai</BwBadge></h2>
       后面会补的
     </BwSection>
 
-    <BwSection>
-      <h2>11、交通方式 <BwBadge>Traffic</BwBadge></h2>
+    <BwSection id="12">
+      <h2>12、交通方式 <BwBadge>Traffic</BwBadge></h2>
       <p>BW2026入场指引具体细节暂未公布；下面为BW2025入场指引仅供参考，后续会更新。</p>
       <table class="bw-table">
         <thead>
@@ -308,8 +343,8 @@ import {
       </div>
     </BwSection>
 
-    <BwSection>
-      <h2>12、集邮 <BwBadge>Photo</BwBadge></h2>
+    <BwSection id="13">
+      <h2>13、集邮 <BwBadge>Photo</BwBadge></h2>
       <BwCallout type="warn">
         <div class="t">⚠️重要提醒</div>
         <ul>
@@ -324,8 +359,8 @@ import {
       </ul>
     </BwSection>
 
-    <BwSection>
-      <h2>13、无料 <BwBadge>Freebie</BwBadge></h2>
+    <BwSection id="14">
+      <h2>14、无料 <BwBadge>Freebie</BwBadge></h2>
       <ul>
         <li>💤 不建议准备和接收食品无料（害人之心不可有，防人之心不可无）</li>
         <li>✅ 无料不在乎价值，只要是你的心意就好啦</li>
@@ -333,8 +368,8 @@ import {
       </ul>
     </BwSection>
 
-    <BwSection>
-      <h2>14、随身物品 <BwBadge>Carry</BwBadge></h2>
+    <BwSection  id="15">
+      <h2>15、随身物品 <BwBadge>Carry</BwBadge></h2>
       <BwCallout type="info">
         <div class="t">建议轻量化为主，轻装上阵</div>
       </BwCallout>
@@ -348,8 +383,8 @@ import {
       </ul>
     </BwSection>
 
-    <BwSection>
-      <h2>15、排队 <BwBadge>Queue</BwBadge></h2>
+    <BwSection id="16">
+      <h2>16、排队 <BwBadge>Queue</BwBadge></h2>
       <BwCallout type="warn">
         <div class="t">⚠️重要提醒</div>
         <ul>
@@ -358,13 +393,13 @@ import {
       </BwCallout>
     </BwSection>
 
-    <BwSection>
-      <h2>16、签售会/见面会 <BwBadge>Meet</BwBadge></h2>
+    <BwSection id="17">
+      <h2>17、签售会/见面会 <BwBadge>Meet</BwBadge></h2>
       <p>一般需要提前预约，详情关注目标UP主的B站动态等待消息。</p>
     </BwSection>
 
-    <BwSection>
-      <h2>17、衣着 <BwBadge>Clothes</BwBadge></h2>
+    <BwSection id="18">
+      <h2>18、衣着 <BwBadge>Clothes</BwBadge></h2>
       <ul>
         <li>普通游客穿着短袖即可</li>
         <li>请不要穿着<b>过于暴露</b>的衣服，可能会被保安赶出去</li>
@@ -372,8 +407,8 @@ import {
       </ul>
     </BwSection>
 
-    <BwSection>
-      <h2>18、道具 <BwBadge>Props</BwBadge></h2>
+    <BwSection id="19">
+      <h2>19、道具 <BwBadge>Props</BwBadge></h2>
       <ul>
         <li>最好选择塑料/泡沫等安全的道具</li>
         <li>过长的道具可能会被安检拦下</li>
@@ -381,36 +416,36 @@ import {
       </ul>
     </BwSection>
 
-    <BwSection>
-      <h2>19、票的数量 <BwBadge>Scale</BwBadge></h2>
+    <BwSection id="20">
+      <h2>20、票的数量 <BwBadge>Scale</BwBadge></h2>
       <p>2025年门票大约3天共40万张，2026应该也差不多</p>
     </BwSection>
 
-    <BwSection>
-      <h2>20、大会员推不推荐开？ <BwBadge>VIP</BwBadge></h2>
+    <BwSection id="21">
+      <h2>21、大会员推不推荐开？ <BwBadge>VIP</BwBadge></h2>
       <p>除非你有十足把握，我个人建议不开：大会员提前放票非常少，十分不好抢（按去年）。</p>
     </BwSection>
 
-    <BwSection>
-      <h2>21、BW是否和BML冲突 <BwBadge>Schedule</BwBadge></h2>
+    <BwSection id="22">
+      <h2>22、BW是否和BML冲突 <BwBadge>Schedule</BwBadge></h2>
       <p>BW是漫展：上午八点半到下午五点。BML是演唱会：下午六点到晚上十点。</p>
       <p>此外，自2024年开始，BML改为在国家会展中心（虹馆）举办，<s>还我梅菜篮子</s>，更不用担心冲突。</p>
       <p><s>变成游戏演唱会哩TAT</s></p>
     </BwSection>
 
-    <BwSection>
-      <h2>22、嘉宾列表没有的UP会不会去BW <BwBadge>Guests</BwBadge></h2>
+    <BwSection id="23">
+      <h2>23、嘉宾列表没有的UP会不会去BW <BwBadge>Guests</BwBadge></h2>
       <p>关注你喜欢UP主的抖音、微博、B站、小红书等账号，通常会有行程安排。</p>
     </BwSection>
 
-    <BwSection>
-      <h2>23、关于摄影和妆娘，毛娘 <BwBadge>Services</BwBadge></h2>
+    <BwSection id="24">
+      <h2>24、关于摄影和妆娘，毛娘 <BwBadge>Services</BwBadge></h2>
       <p>群里有摄影老师和妆娘、毛娘，可在群内约。也可以去咸鱼、小红书、抖音、B站等约摄影师/毛娘/妆娘。</p>
       <p>各位coser注意防骗：约摄影师先看场照、正片、价格、是否修图等；约妆娘毛娘同理。</p>
     </BwSection>
 
-    <BwSection>
-      <h2>24、逛完漫展或者10号14号在上海推荐去哪些二次元浓厚的地方 <BwBadge>Places</BwBadge></h2>
+    <BwSection id="25">
+      <h2>25、逛完漫展或者10号14号在上海推荐去哪些二次元浓厚的地方 <BwBadge>Places</BwBadge></h2>
       <p>逛完漫展最好在宾馆休息。精力充沛可去：</p>
       <ul>
         <li>南京东路百联ZX、百米香榭吃谷</li>
@@ -419,8 +454,8 @@ import {
       </ul>
     </BwSection>
 
-    <BwSection>
-      <h2>25、关于存包 <BwBadge>Storage</BwBadge></h2>
+    <BwSection id="26">
+      <h2>26、关于存包 <BwBadge>Storage</BwBadge></h2>
       <p>场馆内可以存包。按去年：普票存包20，VIP免费，先到先得。VIP票优先；普票满了VIP依旧可存。无论VIP还是普票都只可以存一个包。<b><span class="hl">VIP福袋不可以寄存。</span></b></p>
     </BwSection>
   </div>
