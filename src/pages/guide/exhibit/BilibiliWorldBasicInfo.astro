@@ -8,7 +8,7 @@ import {
 
 <GuideLayout title="BILIBILI WORLD 2026 新手快速指南 - 魔都ACGN资讯站">
   <div class="bw-wrap">
-    <BwHero version="v1.0.0 BW2026">
+    <BwHero version="v1.1.0 BW2026">
       <Fragment slot="title">
         <h1>BILIBILI WORLD 2026 新手快速指南</h1>
       </Fragment>
@@ -44,6 +44,12 @@ import {
         </div>
       </Fragment>
     </BwSection>
+
+    <BwCallout type="info">
+      <div class="t">提醒</div>
+      <p>BW官网已上线，戳↓</p>
+      <a href="https://bw.bilibili.com/2026" target=_blank>https://bw.bilibili.com</a>
+    </BwCallout>
 
     <BwSection id="0">
       <h2>0、写在前面 <BwBadge>冒頭にあたって</BwBadge></h2>
@@ -195,14 +201,23 @@ import {
         <div class="t">⚠️重要提醒</div>
         从2025年开始，BW门票可以提前预选【购票人】和【票种】
       </BwCallout>
-      <ol>
+      <ul>
         <li><b><span class="hl">再次提醒</span>：购票需要B站用户LV2等级及以上的正式会员。</b></li>
-        <li>每个B站账号可登记多个实名制信息（系统对"姓名+身份证号"真实性校验）。</li>
-        <li>不同B站账号可以同时抢同一张身份证的门票</li>
-        <li>BW单日场次每个账号每天最多购买4张。</li>
-        <li>大概率支持期限内退票；临近开展时间手续费比例不等（20%-80%）；开展前3日内一般不支持退票。</li>
-        <li>新手抢票可参考：<a href="https://b23.tv/xLWpZkJ">【保姆级！BW2024抢票攻略！！！-哔哩哔哩】</a></li>
-      </ol>
+        <li>（1）开始抢票前3分钟将无法修改预填信息。</li>
+        <li>（2）购买不同日期的门票需要<b>分开下单</b>。</li>
+        <li>（3）在2025年后，BW门票不再支持网页版购票，<b>必须使用手机APP购票</b>。</li>
+        <li>（4）抢大会员提前批的时候，要注意不能同时登录多台设备，否则可能会被临时冻结大会员权益，导致无法购票。</li>
+        <li>（5）<b>BW门票均为强实名门票，人、证、票三者必须对应且缺一不可，不能拿其他人的身份证入场，也不能在购票后修改实名信息。</b>如果你要帮你朋友抢票，一定要把对方的身份证信息也添加进去，不能用你的身份证去帮他抢票！</li>
+        <li>（6）一个身份证可以在多台设备或多个B站账号同时抢票，也就是<b>可以让你朋友帮你抢票</b>。</li>
+        <li>（7）每张身份证每场次只能购买一张门票，即购买了7月10日的普通票后，就不能再买一张7月10日的VIP票了，但不影响你继续购买7月11日和12日的门票。</li>
+        <li>（8）每个B站账户最多只能购买4张同一个场次且票种相同的门票.</li>
+        <li>（9）如果是多个人组队抢票，需要注意，当你选择的购票人中，如有人已经购买到门票了，那么提交订单的时候会显示<b>【该项目每人限购一张】</b>从而导致无法继续购票，必须返回重新选择门票和购票人。</li>
+        <li>（10）未满14周岁即<code>2012年7月10日</code>以后出生的（不含），<b>无法购买BW门票</b>。</li>
+      </ul>
+      <BwCallout type="info">
+        <div class="t">新手建议参考此抢票攻略视频</div>
+      </BwCallout>
+      <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=116735466282399&bvid=BV1tKEy6QEbj&cid=39054936535&p=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
     </BwSection>
 
     <BwSection id="6">
@@ -550,6 +565,8 @@ import {
   .bw-section p { margin: 8px 0; }
   .bw-section ul, .bw-section ol { margin: 8px 0; padding-left: 20px; }
   .bw-section li { margin: 4px 0; }
+
+  iframe { width: 100%; aspect-ratio: 16 / 9; }
 
   @media (max-width: 520px) {
     .thanks-item { flex-direction: column; }
