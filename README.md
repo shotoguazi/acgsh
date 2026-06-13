@@ -56,7 +56,7 @@ src/
 
 ```bash
 # 1. 在服务器上克隆仓库
-git clone https://github.com/SHACGN/bw_docs.git /var/www/koicomic
+git clone https://cnb.cool/acgsh/astro_website.git /var/www/koicomic
 cd /var/www/koicomic
 
 # 2. 构建
