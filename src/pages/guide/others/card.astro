@@ -25,3 +25,34 @@ import { BwCallout } from '@/components/bw/index';
     部分国内银行卡在境外取现可能有手续费，请提前了解相关政策。
   </BwCallout>
 </GuideLayout>
+
+<style>
+  :global(.guide-content h1) {
+    color: var(--text);
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--border);
+  }
+
+  :global(.guide-content h2) {
+    color: var(--text);
+    margin-top: 32px;
+    margin-bottom: 16px;
+    padding-left: 8px;
+    border-left: 4px solid var(--brand2);
+  }
+
+  :global(.guide-content ul) {
+    background: rgba(91, 124, 255, 0.05);
+    border-left: 3px solid var(--brand2);
+    padding: 16px 16px 16px 24px;
+    border-radius: 6px;
+    margin: 16px 0 !important;
+  }
+
+  :global(.guide-content li) {
+    line-height: 1.8;
+    color: var(--text);
+    margin: 8px 0 !important;
+  }
+</style>
