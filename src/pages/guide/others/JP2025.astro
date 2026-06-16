@@ -5,32 +5,288 @@ import GuideLayout from '@/layouts/GuideLayout.astro';
 <GuideLayout title="闪击日本攻略 2025 - 魔都ACGN资讯站">
   <h1>2025·闪击日本攻略</h1>
 
-  <h2>行前准备</h2>
-  <ul>
-    <li>护照 &amp; 签证（提前1-2个月办理）</li>
-    <li>机票（关注促销，提前3-4个月订）</li>
-    <li>住宿（Booking / Airbnb）</li>
-    <li>网络（SIM卡 / 随身WiFi）</li>
-  </ul>
+  <section class="jp-section">
+    <div class="section-header">
+      <h2>📋 行前准备</h2>
+      <p class="section-desc">出发前需要准备的重要事项</p>
+    </div>
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-icon">🛂</div>
+        <div class="item-content">
+          <h3>护照 &amp; 签证</h3>
+          <p>提前1-2个月办理</p>
+        </div>
+      </div>
+      <div class="item-card">
+        <div class="item-icon">✈️</div>
+        <div class="item-content">
+          <h3>机票</h3>
+          <p>关注促销，提前3-4个月订</p>
+        </div>
+      </div>
+      <div class="item-card">
+        <div class="item-icon">🏨</div>
+        <div class="item-content">
+          <h3>住宿</h3>
+          <p>Booking / Airbnb</p>
+        </div>
+      </div>
+      <div class="item-card">
+        <div class="item-icon">📡</div>
+        <div class="item-content">
+          <h3>网络</h3>
+          <p>SIM卡 / 随身WiFi</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <h2>推荐行程</h2>
-  <h3>东京篇</h3>
-  <ul>
-    <li>秋叶原 - 二次元圣地</li>
-    <li>涩谷 / 原宿 - 潮流文化</li>
-    <li>池袋 - ACGN集中地</li>
-  </ul>
+  <section class="jp-section">
+    <div class="section-header">
+      <h2>🗾 推荐行程</h2>
+      <p class="section-desc">精选日本必去景点和活动地点</p>
+    </div>
+    
+    <div class="subsection">
+      <h3>🌆 东京篇</h3>
+      <div class="location-list">
+        <div class="location-item">
+          <span class="location-name">秋叶原</span>
+          <span class="location-desc">二次元圣地</span>
+        </div>
+        <div class="location-item">
+          <span class="location-name">涩谷 / 原宿</span>
+          <span class="location-desc">潮流文化</span>
+        </div>
+        <div class="location-item">
+          <span class="location-name">池袋</span>
+          <span class="location-desc">ACGN集中地</span>
+        </div>
+      </div>
+    </div>
 
-  <h3>大阪篇</h3>
-  <ul>
-    <li>日本桥 - 大阪的秋叶原</li>
-    <li>环球影城</li>
-  </ul>
+    <div class="subsection">
+      <h3>🏯 大阪篇</h3>
+      <div class="location-list">
+        <div class="location-item">
+          <span class="location-name">日本桥</span>
+          <span class="location-desc">大阪的秋叶原</span>
+        </div>
+        <div class="location-item">
+          <span class="location-name">环球影城</span>
+          <span class="location-desc">主题公园</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <h2>支付</h2>
-  <ul>
-    <li>Visa/Mastercard 信用卡</li>
-    <li>Suica 交通卡（iPhone可添加）</li>
-    <li>适量日元现金</li>
-  </ul>
+  <section class="jp-section">
+    <div class="section-header">
+      <h2>💳 支付方式</h2>
+      <p class="section-desc">日本旅游推荐的支付手段</p>
+    </div>
+    <div class="payment-list">
+      <div class="payment-item">
+        <div class="payment-icon">🏦</div>
+        <div class="payment-info">
+          <h3>Visa/Mastercard 信用卡</h3>
+          <p>全国通用，覆盖面最广</p>
+        </div>
+      </div>
+      <div class="payment-item">
+        <div class="payment-icon">🚇</div>
+        <div class="payment-info">
+          <h3>Suica 交通卡</h3>
+          <p>iPhone可添加，便捷支付</p>
+        </div>
+      </div>
+      <div class="payment-item">
+        <div class="payment-icon">💵</div>
+        <div class="payment-info">
+          <h3>日元现金</h3>
+          <p>适量携带，备用方案</p>
+        </div>
+      </div>
+    </div>
+  </section>
 </GuideLayout>
+
+<style>
+  .jp-section {
+    margin: 40px 0;
+    padding-bottom: 20px;
+  }
+
+  .section-header {
+    margin-bottom: 24px;
+  }
+
+  .section-header h2 {
+    font-size: 1.6em;
+    margin-bottom: 6px;
+    background: linear-gradient(135deg, var(--brand), var(--brand2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .section-desc {
+    color: var(--muted);
+    font-size: 0.95em;
+  }
+
+  /* 行前准备卡片网格 */
+  .item-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+  }
+
+  .item-card {
+    display: flex;
+    gap: 12px;
+    padding: 16px;
+    background: var(--card);
+    border: var(--border);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+
+  .item-card:hover {
+    border-color: var(--brand2);
+    box-shadow: 0 4px 12px rgba(91, 124, 255, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .item-icon {
+    font-size: 2em;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  .item-content h3 {
+    font-size: 1em;
+    margin: 0 0 4px;
+    color: var(--text);
+  }
+
+  .item-content p {
+    font-size: 0.85em;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* 推荐行程 */
+  .subsection {
+    margin: 24px 0;
+  }
+
+  .subsection h3 {
+    font-size: 1.2em;
+    margin: 0 0 12px;
+    color: var(--text);
+  }
+
+  .location-list {
+    display: grid;
+    gap: 10px;
+  }
+
+  .location-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    background: rgba(91, 124, 255, 0.04);
+    border-left: 3px solid var(--brand2);
+    border-radius: 6px;
+    transition: all 0.2s ease;
+  }
+
+  .location-item:hover {
+    background: rgba(91, 124, 255, 0.08);
+    padding-left: 20px;
+  }
+
+  .location-name {
+    font-weight: 600;
+    color: var(--text);
+    flex: 1;
+  }
+
+  .location-desc {
+    font-size: 0.85em;
+    color: var(--muted);
+    padding: 2px 8px;
+    background: rgba(91, 124, 255, 0.1);
+    border-radius: 4px;
+  }
+
+  /* 支付方式 */
+  .payment-list {
+    display: grid;
+    gap: 12px;
+  }
+
+  .payment-item {
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    background: var(--card);
+    border: var(--border);
+    border-radius: 10px;
+    transition: all 0.2s ease;
+  }
+
+  .payment-item:hover {
+    border-color: var(--brand);
+    background: rgba(255, 105, 180, 0.02);
+  }
+
+  .payment-icon {
+    font-size: 2em;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  .payment-info h3 {
+    font-size: 1em;
+    margin: 0 0 4px;
+    color: var(--text);
+  }
+
+  .payment-info p {
+    font-size: 0.85em;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .jp-section {
+      margin: 32px 0;
+    }
+
+    .section-header h2 {
+      font-size: 1.4em;
+    }
+
+    .item-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .location-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+    }
+
+    .location-desc {
+      display: inline-block;
+    }
+
+    .payment-item {
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+</style>
