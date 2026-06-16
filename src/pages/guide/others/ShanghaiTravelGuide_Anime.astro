@@ -3,26 +3,188 @@ import GuideLayout from '@/layouts/GuideLayout.astro';
 ---
 
 <GuideLayout title="上海游物推荐 - 魔都ACGN资讯站">
-  <h1>上海游物推荐</h1>
+  <div class="guide-wrap">
+    <h1 class="guide-title">上海游物推荐</h1>
 
-  <h2>二次元圣地巡礼</h2>
+    <section class="guide-section">
+      <h2 class="section-title">二次元圣地巡礼</h2>
 
-  <h3>南京东路</h3>
-  <ul>
-    <li><strong>百联ZX</strong>：上海二次元地标，各种动漫周边店</li>
-    <li><strong>百米香榭</strong>：吃谷好去处</li>
-  </ul>
+      <div class="locations-grid">
+        <div class="location-card">
+          <h3 class="location-name">南京东路</h3>
+          <ul class="poi-list">
+            <li>
+              <span class="poi-name">百联ZX</span>
+              <span class="poi-desc">上海二次元地标，各种动漫周边店</span>
+            </li>
+            <li>
+              <span class="poi-name">百米香榭</span>
+              <span class="poi-desc">吃谷好去处</span>
+            </li>
+          </ul>
+        </div>
 
-  <h3>金桥</h3>
-  <ul>
-    <li><strong>拉拉宝都</strong>：看高达！</li>
-  </ul>
+        <div class="location-card">
+          <h3 class="location-name">金桥</h3>
+          <ul class="poi-list">
+            <li>
+              <span class="poi-name">拉拉宝都</span>
+              <span class="poi-desc">看高达！</span>
+            </li>
+          </ul>
+        </div>
 
-  <h3>汶水路</h3>
-  <ul>
-    <li><strong>EVA主题公园</strong>：建议下午五六点去</li>
-  </ul>
+        <div class="location-card">
+          <h3 class="location-name">汶水路</h3>
+          <ul class="poi-list">
+            <li>
+              <span class="poi-name">EVA主题公园</span>
+              <span class="poi-desc">建议下午五六点去</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-  <h2>交通提示</h2>
-  <p>建议使用高德/百度/腾讯导航，坐地铁建议去大都会买三日地铁票，无限乘。</p>
+    <section class="guide-section">
+      <h2 class="section-title">交通提示</h2>
+      <div class="tip-card">
+        <p>建议使用高德/百度/腾讯导航，坐地铁建议去大都会买三日地铁票，无限乘。</p>
+      </div>
+    </section>
+  </div>
 </GuideLayout>
+
+<style>
+  .guide-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+
+  .guide-title {
+    font-size: 2.4em;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 40px;
+    background: linear-gradient(135deg, var(--brand), var(--brand2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .guide-section {
+    margin-bottom: 40px;
+  }
+
+  .section-title {
+    font-size: 1.6em;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--brand2);
+    display: inline-block;
+  }
+
+  .locations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .location-card {
+    background: var(--card);
+    border: var(--border);
+    border-radius: var(--radius);
+    padding: var(--pad);
+    box-shadow: var(--shadow);
+    transition: all .3s ease;
+  }
+
+  .location-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow2);
+    border-color: var(--brand2);
+  }
+
+  .location-name {
+    font-size: 1.3em;
+    font-weight: 700;
+    color: var(--brand2);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .location-name::before {
+    content: '📍';
+    font-size: 1.2em;
+  }
+
+  .poi-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .poi-list li {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px;
+    background: rgba(91, 124, 255, .05);
+    border-radius: 8px;
+    border-left: 3px solid var(--brand2);
+  }
+
+  .poi-name {
+    font-weight: 600;
+    color: var(--text);
+    font-size: 0.95em;
+  }
+
+  .poi-desc {
+    font-size: 0.85em;
+    color: var(--muted);
+  }
+
+  .tip-card {
+    background: linear-gradient(135deg, rgba(255, 105, 180, .05), rgba(91, 124, 255, .05));
+    border: var(--border);
+    border-radius: var(--radius);
+    padding: var(--pad);
+    border-left: 4px solid var(--brand);
+  }
+
+  .tip-card p {
+    color: var(--text);
+    font-size: 1.05em;
+    line-height: 1.8;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .guide-wrap {
+      padding: 30px 16px;
+    }
+
+    .guide-title {
+      font-size: 1.8em;
+      margin-bottom: 30px;
+    }
+
+    .section-title {
+      font-size: 1.3em;
+    }
+
+    .locations-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
