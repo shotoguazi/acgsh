@@ -578,8 +578,22 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
     .hero-title { display: none; }
     .hero-subtitle { display: none; }
 
+    .hero-tagline {
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
     .hero-actions {
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      justify-items: center;
+    }
+
+    .hero-actions .btn {
+      width: 100%;
+      text-align: center;
+      padding: 8px 10px;
+      font-size: 13px;
     }
 
     .hero-image {
