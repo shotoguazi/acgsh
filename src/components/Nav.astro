@@ -71,17 +71,17 @@ const navItems = [
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(255, 255, 255, .8);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(20, 32, 60, .06);
-    box-shadow: 0 1px 8px rgba(0, 0, 0, .04);
+    background: rgba(255, 255, 255, .72);
+    backdrop-filter: blur(20px) saturate(1.5);
+    -webkit-backdrop-filter: blur(20px) saturate(1.5);
+    border-bottom: 1px solid rgba(255, 255, 255, .4);
+    box-shadow: 0 1px 12px rgba(0, 0, 0, .06);
   }
 
   @media (prefers-color-scheme: dark) {
     .navbar {
-      background: rgba(15, 23, 48, .8);
-      border-bottom: 1px solid rgba(255, 255, 255, .06);
+      background: rgba(15, 23, 48, .72);
+      border-bottom: 1px solid rgba(255, 255, 255, .08);
     }
   }
 
@@ -96,21 +96,19 @@ const navItems = [
   }
 
   .nav-logo {
-    font-weight: 400;
-    font-size: 1.15em;
-    color: #000;
+    font-weight: 800;
+    font-size: 1.35em;
+    font-family: "Microsoft YaHei UI", "Microsoft YaHei", "PingFang SC", sans-serif;
+    background: linear-gradient(135deg, var(--brand), var(--brand2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     letter-spacing: .5px;
     transition: opacity .2s;
   }
 
-  @media (prefers-color-scheme: dark) {
-    .nav-logo {
-      color: #fff;
-    }
-  }
-
   .nav-logo:hover {
-    opacity: .8;
+    opacity: .7;
     text-decoration: none;
   }
 
@@ -139,6 +137,24 @@ const navItems = [
     position: relative;
   }
 
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 4px;
+    height: 2px;
+    border-radius: 2px;
+    background: linear-gradient(135deg, var(--brand), var(--brand2));
+    transform: scaleX(0);
+    transition: transform .25s ease;
+  }
+
+  .nav-link:hover::after,
+  .has-dropdown:hover > .nav-link::after {
+    transform: scaleX(1);
+  }
+
   .nav-link:hover,
   .has-dropdown:hover > .nav-link {
     background: linear-gradient(135deg, rgba(255, 105, 180, .08), rgba(91, 124, 255, .08));
@@ -154,14 +170,24 @@ const navItems = [
     padding: 8px;
     margin: 0;
     border-radius: 12px;
-    background: var(--card);
-    border: var(--border);
-    box-shadow: var(--shadow);
+    background: rgba(255, 255, 255, .8);
+    backdrop-filter: blur(16px) saturate(1.4);
+    -webkit-backdrop-filter: blur(16px) saturate(1.4);
+    border: 1px solid rgba(255, 255, 255, .6);
+    box-shadow: 0 8px 32px rgba(20, 116, 158, .12);
     opacity: 0;
     visibility: hidden;
     transform: translateY(8px);
     transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
     z-index: 200;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .dropdown {
+      background: rgba(15, 23, 48, .88);
+      border: 1px solid rgba(255, 255, 255, .1);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, .3);
+    }
   }
 
   .has-dropdown:hover > .dropdown {
@@ -177,11 +203,12 @@ const navItems = [
     color: var(--text);
     font-size: 14px;
     white-space: nowrap;
-    transition: background .2s ease;
+    transition: all .2s ease;
   }
 
   .dropdown a:hover {
-    background: rgba(91, 124, 255, .1);
+    background: linear-gradient(135deg, rgba(255, 105, 180, .1), rgba(91, 124, 255, .1));
+    padding-left: 18px;
     text-decoration: none;
   }
 

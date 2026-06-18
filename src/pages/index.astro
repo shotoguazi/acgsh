@@ -18,7 +18,38 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
       <span class="btn btn-alt">陆续增加中...</span>
     </div>
     <div class="hero-image">
-      <img src="https://i0.hdslb.com/bfs/activity-plat/static/20260601/ab7d0705cc5350aa3cc844d35b41cabf/U9ZY0WPYp5.jpg" alt="BW2026封面" referrerPolicy="no-referrer">
+      <article class="main-card">
+        <span class="deco orb-a" aria-hidden="true"></span>
+        <span class="deco orb-b" aria-hidden="true"></span>
+        <span class="deco tile-a" aria-hidden="true"></span>
+        <span class="deco tile-b" aria-hidden="true"></span>
+        <div class="main-content">
+          <div class="topline">
+            <span class="logo">哔哩哔哩 (゜-゜)つロ 干杯~</span>
+            <p class="target-time" id="mainTargetTime">2026.07.10</p>
+          </div>
+          <h1 id="mainTitle">BILIBILI 2026</h1>
+          <p class="event-note" id="mainNote"></p>
+          <div class="primary-countdown" id="primaryCountdown" aria-live="polite">
+            <div class="time-cell main">
+              <span class="num" id="mainDays">00</span>
+              <span class="label">天</span>
+            </div>
+            <div class="time-cell">
+              <span class="num" id="mainHours">00</span>
+              <span class="label">时</span>
+            </div>
+            <div class="time-cell">
+              <span class="num" id="mainMinutes">00</span>
+              <span class="label">分</span>
+            </div>
+            <div class="time-cell">
+              <span class="num" id="mainSeconds">00</span>
+              <span class="label">秒</span>
+            </div>
+          </div>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -40,66 +71,126 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
       <p>一手资源，实时更新活动信息，让你永远快人一步！</p>
     </div>
   </section>
-
-  <section class="countdown-section" id="countdown-section">
-    <div class="countdown-card">
-      <div class="countdown-label" id="countdown-label">加载中...</div>
-      <div class="countdown-timer">
-        <span class="time-box" id="countdown-hours">00</span>
-        <span class="time-unit">时</span>
-        <span class="time-box" id="countdown-minutes">00</span>
-        <span class="time-unit">分</span>
-        <span class="time-box" id="countdown-seconds">00</span>
-        <span class="time-unit">秒</span>
-      </div>
-    </div>
-  </section>
 </BaseLayout>
 
 <script>
-  const events = [
-    { label: '距离 BW&BML联票开票还剩', time: new Date('2026-06-19T12:00:00+08:00').getTime() },
-    { label: '距离 大会员提前批 & 尊享联票开票还剩', time: new Date('2026-06-20T12:00:00+08:00').getTime() },
-    { label: '距离 正式开票还剩', time: new Date('2026-06-20T18:00:00+08:00').getTime() },
+  const mainEvent = {
+    title: "哔哩哔哩乐园2026 正式开启",
+    note: "Bilibili World 2026，周五早上八点半，不见不散🎉",
+    time: "2026-07-10T08:30:00+08:00"
+  };
+
+  const particleColors = [
+    { fill: "rgba(122, 224, 240, 0.78)", glow: "rgba(122, 224, 240, 0.42)" },
+    { fill: "rgba(255, 156, 207, 0.72)", glow: "rgba(255, 156, 207, 0.36)" },
+    { fill: "rgba(255, 255, 255, 0.72)", glow: "rgba(160, 229, 241, 0.32)" }
   ];
 
-  let idx = 0;
-  const labelEl = document.getElementById('countdown-label');
-  const hoursEl = document.getElementById('countdown-hours');
-  const minsEl = document.getElementById('countdown-minutes');
-  const secsEl = document.getElementById('countdown-seconds');
-  const sectionEl = document.getElementById('countdown-section');
+  const PARTICLES_PER_CELL = 40;
 
-  function pad(n) {
-    return String(n).padStart(2, '0');
+  const DOM = {
+    primaryCountdown: document.querySelector("#primaryCountdown"),
+    mainTitle: document.querySelector("#mainTitle"),
+    mainNote: document.querySelector("#mainNote"),
+    mainTargetTime: document.querySelector("#mainTargetTime"),
+    mainDays: document.querySelector("#mainDays"),
+    mainHours: document.querySelector("#mainHours"),
+    mainMinutes: document.querySelector("#mainMinutes"),
+    mainSeconds: document.querySelector("#mainSeconds"),
+  };
+
+  let lastMinute = null;
+
+  const pad = (value) => String(value).padStart(2, "0");
+
+  function getParts(timeString) {
+    const remaining = Math.max(0, new Date(timeString).getTime() - Date.now());
+    const totalSeconds = Math.floor(remaining / 1000);
+    return {
+      days: Math.floor(totalSeconds / 86400),
+      hours: Math.floor((totalSeconds % 86400) / 3600),
+      minutes: Math.floor((totalSeconds % 3600) / 60),
+      seconds: totalSeconds % 60
+    };
   }
 
-  function tick() {
-    const now = Date.now();
-
-    while (idx < events.length && events[idx].time <= now) {
-      idx++;
-    }
-
-    if (idx >= events.length) {
-      sectionEl.style.display = 'none';
-      return;
-    }
-
-    const remaining = events[idx].time - now;
-    labelEl.textContent = events[idx].label;
-
-    const h = Math.floor(remaining / 3600000);
-    const m = Math.floor((remaining % 3600000) / 60000);
-    const s = Math.floor((remaining % 60000) / 1000);
-
-    hoursEl.textContent = pad(h);
-    minsEl.textContent = pad(m);
-    secsEl.textContent = pad(s);
-    requestAnimationFrame(tick);
+  function formatTargetTime(timeString) {
+    const date = new Date(timeString);
+    return `${date.getFullYear()}.${pad(date.getMonth() + 1)}.${pad(date.getDate())} ${pad(date.getHours())}:${pad(date.getMinutes())}`;
   }
 
-  requestAnimationFrame(tick);
+  function setupPage() {
+    DOM.mainTitle.textContent = mainEvent.title;
+    DOM.mainNote.textContent = mainEvent.note;
+    DOM.mainTargetTime.textContent = formatTargetTime(mainEvent.time);
+  }
+
+  function renderMain() {
+    const parts = getParts(mainEvent.time);
+    DOM.mainDays.textContent = pad(parts.days);
+    DOM.mainHours.textContent = pad(parts.hours);
+    DOM.mainMinutes.textContent = pad(parts.minutes);
+    DOM.mainSeconds.textContent = pad(parts.seconds);
+
+    if (lastMinute !== null && parts.minutes !== lastMinute) {
+      playMinuteEffect();
+    }
+    lastMinute = parts.minutes;
+  }
+
+  function renderAll() {
+    renderMain();
+  }
+
+  function playMinuteEffect() {
+    [...DOM.primaryCountdown.querySelectorAll(".time-cell")].forEach((cell) => {
+
+      cell.classList.remove("refresh");
+      cell.querySelectorAll(".cell-particle").forEach(p => p.remove());
+      void cell.offsetWidth;
+      cell.classList.add("refresh");
+
+      createCellParticles(cell);
+    });
+  }
+
+  function createCellParticles(cell) {
+    const fragment = document.createDocumentFragment();
+
+    for (let i = 0; i < PARTICLES_PER_CELL; i += 1) {
+      const particle = document.createElement("span");
+      const color = particleColors[i % particleColors.length];
+
+      const size = 1.5 + Math.random() * 2.6;
+      const drift = (Math.random() - 0.5) * 26;
+      const rise = -(46 + Math.random() * 54);
+      const peakOpacity = 0.38 + Math.random() * 0.42;
+
+      particle.className = "cell-particle";
+      particle.style.setProperty("--left", `${6 + Math.random() * 88}%`);
+      particle.style.setProperty("--bottom", `${-9 + Math.random() * 16}px`);
+      particle.style.setProperty("--size", `${size}px`);
+      particle.style.setProperty("--drift", `${drift}px`);
+      particle.style.setProperty("--rise", `${rise}px`);
+      particle.style.setProperty("--duration", `${2300 + Math.random() * 520}ms`);
+      particle.style.setProperty("--delay", `${Math.random() * 180}ms`);
+      particle.style.setProperty("--end-scale", `${0.72 + Math.random() * 0.58}`);
+      particle.style.setProperty("--peak-opacity", `${peakOpacity}`);
+      particle.style.setProperty("--tail-opacity", `${peakOpacity * 0.62}`);
+      particle.style.setProperty("--particle-color", color.fill);
+      particle.style.setProperty("--particle-glow", color.glow);
+
+      particle.addEventListener("animationend", () => particle.remove(), { once: true });
+      fragment.appendChild(particle);
+    }
+
+    cell.appendChild(fragment);
+  }
+
+  setupPage();
+  renderAll();
+  setInterval(renderAll, 1000);
+  window.addEventListener("load", () => setTimeout(playMinuteEffect, 500));
 </script>
 
 <style>
@@ -176,15 +267,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 
   .hero-image {
     flex-shrink: 0;
-    width: 420px;
-    border-radius: var(--radius);
-    overflow: hidden;
-    box-shadow: var(--shadow);
-  }
-
-  .hero-image img {
-    width: 100%;
-    display: block;
+    width: 480px;
+    container-type: inline-size;
   }
 
   .features {
@@ -202,6 +286,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
     border-radius: var(--radius);
     padding: var(--pad);
     box-shadow: var(--shadow);
+    min-height: 150px;
   }
 
   .feature-card.warn {
@@ -221,114 +306,285 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
     line-height: 1.7;
   }
 
-  .countdown-card {
+  .main-card {
     position: relative;
-    z-index: 1;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 36px 64px;
-    background: rgba(255, 255, 255, 0.18);
-    backdrop-filter: blur(24px) saturate(1.4);
-    -webkit-backdrop-filter: blur(24px) saturate(1.4);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    border-radius: 24px;
+    min-height: 57cqi;
+    padding: 5.7cqi 5.2cqi 4.8cqi;
+    border-radius: 5.7cqi;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.76);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.34)), rgba(255, 255, 255, 0.58);
+    box-shadow: 0 18px 56px rgba(20, 116, 158, 0.14);
+    backdrop-filter: blur(18px) saturate(128%);
   }
 
-  .countdown-section {
-    position: relative;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 20px 60px;
-    display: flex;
-    justify-content: center;
-  }
-
-  .countdown-section::before {
-    content: '';
+  .main-card .deco {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 700px;
-    height: 300px;
-    background: linear-gradient(135deg, rgba(255, 105, 180, 0.25), rgba(100, 149, 237, 0.25));
-    border-radius: 50%;
-    filter: blur(60px);
+    z-index: 1;
     pointer-events: none;
-    z-index: 0;
+    opacity: 0.78;
   }
 
-  .countdown-label {
-    font-size: 2em;
-    font-weight: 900;
-    font-family: 'Source Han Serif SC', 'Noto Serif SC', '思源宋体', 'SimSun', serif;
-    margin-bottom: 16px;
-    letter-spacing: 2px;
-    background: linear-gradient(135deg, var(--brand), var(--brand2));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .main-card .orb-a {
+    left: -46px;
+    top: -42px;
+    width: 164px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: rgba(0, 161, 214, 0.14);
+    animation: driftOrbA 9s ease-in-out infinite;
   }
 
-  .countdown-timer {
+  .main-card .orb-b {
+    right: -54px;
+    bottom: -62px;
+    width: 172px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: rgba(255, 146, 200, 0.18);
+    animation: driftOrbB 10s ease-in-out infinite;
+  }
+
+  .main-card .tile-a, .main-card .tile-b {
+    border-radius: 12px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.52), rgba(255, 255, 255, 0.16)), rgba(138, 228, 218, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.36);
+    backdrop-filter: blur(6px);
+  }
+
+  .main-card .tile-a {
+    right: 26px;
+    top: 58px;
+    width: 28px;
+    height: 28px;
+    transform: rotate(14deg);
+    animation: driftTileA 8s ease-in-out infinite;
+  }
+
+  .main-card .tile-b {
+    left: 32px;
+    bottom: 26px;
+    width: 20px;
+    height: 20px;
+    transform: rotate(-18deg);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.54), rgba(255, 255, 255, 0.14)), rgba(255, 146, 200, 0.16);
+    animation: driftTileB 7.4s ease-in-out infinite;
+  }
+
+  .main-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .topline {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 12px;
-    padding-left: 40px;
+    justify-content: space-between;
+    gap: 2.86cqi;
   }
 
-  .time-box {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 1.6em;
-    height: 1.6em;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.06);
-    font-size: 5em;
-    font-weight: 900;
+  .logo {
+    display: inline-grid;
+    place-items: center;
+    min-width: 14.8cqi;
+    height: 6.7cqi;
+    padding: 0 2.4cqi;
+    border-radius: 2.1cqi;
+    color: white;
+    font-size: 3.1cqi;
+    font-weight: 800;
+    letter-spacing: 0;
+    background: #00a1d6;
+    box-shadow: 0 8px 16px rgba(0, 161, 214, 0.18);
+  }
+
+  .target-time {
+    margin: 0;
+    font-size: 2.86cqi;
+    font-weight: 800;
+    color: rgba(36, 72, 92, 0.66);
+  }
+
+  .main-card h1 {
+    margin: 3.3cqi 0 1cqi;
+    font-size: 5cqi;
+    line-height: 1.22;
+    letter-spacing: 0;
+    color: var(--text);
+  }
+
+  .event-note {
+    margin: 0;
+    font-size: 2.86cqi;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  .primary-countdown {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.9cqi;
+    margin-top: 4.8cqi;
+  }
+
+  .time-cell {
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+    padding: 2.4cqi 1.4cqi 2.1cqi;
+    border-radius: 3.3cqi;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.24)), rgba(255, 255, 255, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), inset 0 -1px 0 rgba(0, 161, 214, 0.08);
+    backdrop-filter: blur(12px) saturate(120%);
+  }
+
+  .time-cell.main {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.56), rgba(232, 249, 255, 0.32)), rgba(255, 255, 255, 0.3);
+  }
+
+  .time-cell::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    background:
+      radial-gradient(circle at 16% 90%, rgba(0, 161, 214, 0.56) 0 1.3px, transparent 2px),
+      radial-gradient(circle at 32% 78%, rgba(255, 146, 200, 0.5) 0 1.2px, transparent 2px),
+      radial-gradient(circle at 48% 88%, rgba(117, 221, 236, 0.58) 0 1.4px, transparent 2.2px),
+      radial-gradient(circle at 64% 73%, rgba(255, 180, 220, 0.5) 0 1.1px, transparent 2px),
+      radial-gradient(circle at 78% 84%, rgba(0, 161, 214, 0.48) 0 1.2px, transparent 2px),
+      radial-gradient(circle at 88% 94%, rgba(255, 146, 200, 0.42) 0 1px, transparent 1.8px),
+      radial-gradient(circle at 26% 62%, rgba(122, 225, 238, 0.42) 0 1px, transparent 1.8px),
+      radial-gradient(circle at 58% 58%, rgba(255, 146, 200, 0.38) 0 0.9px, transparent 1.7px),
+      linear-gradient(to top, rgba(154, 231, 244, 0.22), rgba(255, 169, 213, 0.16), transparent 78%);
+    transform: translateY(42%);
+    mask-image: linear-gradient(to top, transparent 0%, #000 16%, #000 76%, transparent 100%);
+  }
+
+  .time-cell::after {
+    content: "";
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    bottom: -16px;
+    height: 42px;
+    pointer-events: none;
+    opacity: 0;
+    border-radius: 999px 999px 0 0;
+    background: radial-gradient(ellipse at center, rgba(141, 229, 242, 0.36), rgba(255, 170, 216, 0.18) 48%, transparent 72%);
+    filter: blur(7px);
+    transform: translateY(12px) scaleX(0.82);
+  }
+
+  .time-cell.refresh::before {
+    animation: ultraSweep 980ms ease-out forwards;
+  }
+
+  .time-cell.refresh::after {
+    animation: softBase 980ms ease-out forwards;
+  }
+
+  .cell-particle {
+    position: absolute;
+    left: var(--left);
+    bottom: var(--bottom);
+    z-index: 1;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 999px;
+    pointer-events: none;
+    opacity: 0;
+    background: var(--particle-color);
+    box-shadow: 0 0 9px var(--particle-glow);
+    transform: translate3d(0, 18px, 0) scale(0.4);
+    animation: particleRise var(--duration) cubic-bezier(0.2, 0.7, 0.28, 1) forwards;
+    animation-delay: var(--delay);
+  }
+
+  .num, .label {
+    position: relative;
+    z-index: 3;
+  }
+
+  .num {
+    display: block;
+    font-variant-numeric: tabular-nums;
+    font-size: 5.7cqi;
     line-height: 1;
-    font-family: 'Source Han Sans SC', 'Noto Sans SC', '思源黑体', 'Microsoft YaHei', sans-serif;
-    color: #1a1a2e;
+    font-weight: 900;
+    color: #123e54;
+    font-family: "Microsoft YaHei UI", "PingFang SC", "Segoe UI", sans-serif;
   }
 
-  .time-unit {
-    font-size: 1.6em;
-    font-weight: 700;
-    color: #666;
-    margin-top: 2.6em;
+  .label {
+    display: block;
+    margin-top: 1.4cqi;
+    font-size: 2.6cqi;
+    color: rgba(36, 72, 92, 0.58);
+    font-family: "Microsoft YaHei UI", "PingFang SC", "Segoe UI", sans-serif;
+  }
+
+  @keyframes driftOrbA {
+    0%, 100% { transform: translate(0, 0); }
+    50%      { transform: translate(11px, 8px); }
+  }
+
+  @keyframes driftOrbB {
+    0%, 100% { transform: translate(0, 0); }
+    50%      { transform: translate(-10px, -9px); }
+  }
+
+  @keyframes driftTileA {
+    0%, 100% { transform: translate(0, 0) rotate(14deg); }
+    50%      { transform: translate(-8px, 9px) rotate(20deg); }
+  }
+
+  @keyframes driftTileB {
+    0%, 100% { transform: translate(0, 0) rotate(-18deg); }
+    50%      { transform: translate(9px, -7px) rotate(-10deg); }
+  }
+
+  @keyframes ultraSweep {
+    0%   { opacity: 0; transform: translateY(54%) scale(0.94); filter: blur(1.2px); }
+    16%  { opacity: 1; filter: blur(0.4px); }
+    68%  { opacity: 0.78; }
+    100% { opacity: 0; transform: translateY(-66%) scale(1.02); filter: blur(1.1px); }
+  }
+
+  @keyframes softBase {
+    0%   { opacity: 0; transform: translateY(14px) scaleX(0.76); }
+    20%  { opacity: 0.9; }
+    72%  { opacity: 0.34; }
+    100% { opacity: 0; transform: translateY(-5px) scaleX(1.08); }
+  }
+
+  @keyframes particleRise {
+    0%   { opacity: 0; transform: translate3d(0, 18px, 0) scale(0.35); filter: blur(0.3px); }
+    14%  { opacity: var(--peak-opacity); }
+    76%  { opacity: var(--tail-opacity); }
+    100% { opacity: 0; transform: translate3d(var(--drift), var(--rise), 0) scale(var(--end-scale)); filter: blur(0.9px); }
   }
 
   @media (max-width: 768px) {
-    .countdown-label { font-size: 1.1em; }
-    .countdown-card { padding: 20px 16px; width: 100%; box-sizing: border-box; }
-    .countdown-timer { gap: 6px; }
-    .time-box { font-size: 1.8em; width: 1.7em; height: 1.7em; border-radius: 8px; }
-    .time-unit { font-size: 0.8em; margin-top: 2.2em; }
-    .countdown-section { padding: 0 8px 40px; }
-    .countdown-section::before { width: 300px; height: 150px; filter: blur(40px); }
-
     .hero {
       flex-direction: column;
       padding: 40px 20px;
       text-align: center;
     }
 
-    .hero-title { font-size: 1.92em; }
-    .hero-subtitle { font-size: 1.32em; }
-    .countdown-section { padding: 0 4px 40px; }
-    .countdown-card { padding: 20px 12px; }
+    .hero-title { display: none; }
+    .hero-subtitle { display: none; }
 
     .hero-actions {
       justify-content: center;
     }
 
     .hero-image {
-      width: 200px;
+      width: 100%;
+      max-width: 480px;
     }
   }
 </style>

@@ -42,6 +42,26 @@ const { title = '魔都ACGN活动交流群-资讯站', description = '这是一�
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background:
+      radial-gradient(circle at 18% 18%, rgba(255, 196, 224, 0.44), transparent 25%),
+      radial-gradient(circle at 78% 22%, rgba(120, 219, 239, 0.48), transparent 24%),
+      radial-gradient(circle at 50% 86%, rgba(169, 239, 223, 0.42), transparent 26%),
+      linear-gradient(135deg, #f7fcff 0%, #eefbff 47%, #fff8fb 100%);
+    background-attachment: fixed;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.42;
+    background-image:
+      radial-gradient(circle, rgba(0, 161, 214, 0.22) 0 2px, transparent 2.5px),
+      radial-gradient(circle, rgba(255, 146, 200, 0.18) 0 1.5px, transparent 2px);
+    background-position: 0 0, 28px 30px;
+    background-size: 56px 56px, 70px 70px;
+    mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 84%, transparent);
   }
 
   .main-content {
