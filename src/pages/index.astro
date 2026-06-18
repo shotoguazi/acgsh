@@ -43,11 +43,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 
   <section class="countdown-section" id="countdown-section">
     <div class="countdown-card">
-      <div class="countdown-label">
-        <span class="label-prefix" id="label-prefix"></span>
-        <span class="label-name" id="label-name"></span>
-        <span class="label-suffix" id="label-suffix"></span>
-      </div>
+      <div class="countdown-label" id="countdown-label">加载中...</div>
       <div class="countdown-timer">
         <span class="time-box" id="countdown-hours">00</span>
         <span class="time-unit">时</span>
@@ -62,15 +58,13 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 
 <script>
   const events = [
-    { prefix: '距离 ', name: 'BW&BML联票', suffix: '开票还剩', time: new Date('2026-06-19T12:00:00+08:00').getTime() },
-    { prefix: '距离 ', name: '大会员提前批 & 尊享联票', suffix: '开票还剩', time: new Date('2026-06-20T12:00:00+08:00').getTime() },
-    { prefix: '距离 ', name: '正式开票', suffix: '还剩', time: new Date('2026-06-20T18:00:00+08:00').getTime() },
+    { label: '距离 BW&BML联票开票还剩', time: new Date('2026-06-19T12:00:00+08:00').getTime() },
+    { label: '距离 大会员提前批 & 尊享联票开票还剩', time: new Date('2026-06-20T12:00:00+08:00').getTime() },
+    { label: '距离 正式开票还剩', time: new Date('2026-06-20T18:00:00+08:00').getTime() },
   ];
 
   let idx = 0;
-  const prefixEl = document.getElementById('label-prefix');
-  const nameEl = document.getElementById('label-name');
-  const suffixEl = document.getElementById('label-suffix');
+  const labelEl = document.getElementById('countdown-label');
   const hoursEl = document.getElementById('countdown-hours');
   const minsEl = document.getElementById('countdown-minutes');
   const secsEl = document.getElementById('countdown-seconds');
@@ -93,9 +87,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
     }
 
     const remaining = events[idx].time - now;
-    prefixEl.textContent = events[idx].prefix;
-    nameEl.textContent = events[idx].name;
-    suffixEl.textContent = events[idx].suffix;
+    labelEl.textContent = events[idx].label;
 
     const h = Math.floor(remaining / 3600000);
     const m = Math.floor((remaining % 3600000) / 60000);
@@ -272,14 +264,6 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
     font-weight: 800;
     margin-bottom: 16px;
     letter-spacing: 2px;
-  }
-
-  .label-prefix,
-  .label-suffix {
-    color: var(--muted);
-  }
-
-  .label-name {
     background: linear-gradient(135deg, var(--brand), var(--brand2));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
