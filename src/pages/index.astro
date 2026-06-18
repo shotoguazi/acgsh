@@ -40,7 +40,57 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
       <p>一手资源，实时更新活动信息，让你永远快人一步！</p>
     </div>
   </section>
+
+  <section class="countdown-section" id="countdown-section">
+    <div class="countdown-card">
+      <div class="countdown-label" id="countdown-label">加载中...</div>
+      <div class="countdown-timer" id="countdown-timer">00:00:00:000</div>
+    </div>
+  </section>
 </BaseLayout>
+
+<script>
+  const events = [
+    { label: '距离 BW&BML 联票开票还剩', time: new Date('2026-06-19T12:00:00+08:00').getTime() },
+    { label: '距离 大会员提前批 & 尊享联票开票还剩', time: new Date('2026-06-20T12:00:00+08:00').getTime() },
+    { label: '距离 正式开票还剩', time: new Date('2026-06-20T18:00:00+08:00').getTime() },
+  ];
+
+  let idx = 0;
+  const labelEl = document.getElementById('countdown-label');
+  const timerEl = document.getElementById('countdown-timer');
+  const sectionEl = document.getElementById('countdown-section');
+
+  function pad(n, len) {
+    return String(n).padStart(len, '0');
+  }
+
+  function tick() {
+    const now = Date.now();
+
+    while (idx < events.length && events[idx].time <= now) {
+      idx++;
+    }
+
+    if (idx >= events.length) {
+      sectionEl.style.display = 'none';
+      return;
+    }
+
+    const remaining = events[idx].time - now;
+    labelEl.textContent = events[idx].label;
+
+    const h = Math.floor(remaining / 3600000);
+    const m = Math.floor((remaining % 3600000) / 60000);
+    const s = Math.floor((remaining % 60000) / 1000);
+    const ms = remaining % 1000;
+
+    timerEl.textContent = `${pad(h,2)}:${pad(m,2)}:${pad(s,2)}:${pad(ms,3)}`;
+    requestAnimationFrame(tick);
+  }
+
+  requestAnimationFrame(tick);
+</script>
 
 <style>
   .hero {
@@ -161,7 +211,59 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
     line-height: 1.7;
   }
 
+  .countdown-section {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+  }
+
+  .countdown-card {
+    position: relative;
+    border-radius: 16px;
+    padding: 32px 24px;
+    text-align: center;
+    background: transparent;
+  }
+
+  .countdown-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    padding: 3px;
+    background: linear-gradient(135deg, var(--brand), var(--brand2));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .countdown-label {
+    font-size: 2em;
+    font-weight: 800;
+    margin-bottom: 8px;
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, var(--brand), var(--brand2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .countdown-timer {
+    font-size: 5em;
+    font-weight: 900;
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 6px;
+    background: linear-gradient(135deg, var(--brand), var(--brand2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
   @media (max-width: 768px) {
+    .countdown-label { font-size: 1.4em; }
+    .countdown-timer { font-size: 2.4em; letter-spacing: 3px; }
+
     .hero {
       flex-direction: column;
       padding: 40px 20px;

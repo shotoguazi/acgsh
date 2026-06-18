@@ -17,6 +17,16 @@ import {
       </Fragment>
     </BwHero>
 
+    <BwCallout type="warn">
+      <div class="t">⚠️开票提醒</div>
+      <ul>
+        <li>6月19日 12:00 为<b>BW&BML纪念联票</b></li>
+        <li>6月20日 12:00 为<b>大会员提前批&尊享联票</b></li>
+        <li>6月20日 18:00 为<b>正式开票</b></li>
+        <li>平台为：<a href="https://show.bilibili.com/platform/detail.html?id=1001653" target=_blank>哔哩哔哩会员购</a></li>
+      </ul>
+    </BwCallout>
+
     <BwSection>
       <Fragment slot="default">
         <h2>#、特别感谢 <BwBadge>Special Thanks🎉</BwBadge></h2>
@@ -128,7 +138,7 @@ import {
           <tr><th class="center">年份</th><th class="center">官宣日期</th><th class="center">一开日期</th><th class="center">二开日期</th><th class="center">备注</th></tr>
         </thead>
         <tbody>
-          <tr class="row-green"><td class="center"><b>2026</b></td><td class="center">6月8日 (周一)</td><td class="center"><u>预计 6月20日</u></td><td class="center"><u>预计 6月27日</u></td><td class="center"><b>当前</b></td></tr>
+          <tr class="row-green"><td class="center"><b>2026</b></td><td class="center">6月8日 (周一)</td><td class="center">6月19日/20日</td><td class="center"><u>预计 6月27日</u></td><td class="center"><b>当前</b></td></tr>
           <tr class="row-gray"><td class="center"><b>2025</b></td><td class="center">6月9日 (周一)</td><td class="center">6月21日 (周六)</td><td class="center">6月28日 (周六)</td><td class="center">已举办</td></tr>
           <tr class="row-gray"><td class="center"><b>2024</b></td><td class="center">6月5日 (周三)</td><td class="center">6月29日 (周六)</td><td class="center">7月6日 (周六)</td><td class="center">已举办</td></tr>
           <tr class="row-gray"><td class="center"><b>2023</b></td><td class="center">6月16日 (周五)</td><td class="center">7月8日 (周六)</td><td class="center">7月14日 (周五)</td><td class="center">已举办</td></tr>
@@ -156,6 +166,7 @@ import {
           <tr><td class="center"><b>IP典藏票</b></td><td class="center">328元</td><td>包含IP联动实物特典（镭射票根、IP周边等），需入场后前往指定场馆摊位排队换取。<br/><span class="hl">典藏票与普通票的入场时间、入口均一致。</span></td><td class="center">如果这个IP是你的最爱，那么太棒了！</td></tr>
           <tr><td class="center"><b>普通票（游园票）</b></td><td class="center">128元</td><td>无</td><td class="center">组成了漫展的 <code>大多数</code></td></tr>
           <tr><td class="center"><b>纪念联票</b></td><td class="center">808-1308元</td><td>联票纪念双面防晒渔夫帽</td><td class="center">BW单日游园票 + BML单日组合</td></tr>
+          <tr><td class="center"><b>尊享联票</b></td><td class="center">888元</td><td>实体B站超级大会员年卡、超大会员限定周边礼盒</td><td class="center">富哥专属 捆绑了超大会员和VIP门票</td></tr>
           <tr><td class="center"><b>邀请函</b></td><td class="center">400-1500元</td><td>你将晚于上述所有票种入场</td><td class="center"><b>非公开售卖</b>，怨种预定</td></tr>
         </tbody>
       </table>
@@ -260,10 +271,10 @@ import {
       <BwUpdate theme="blue">
         <BwLatest slot="latest" chip="BW2026 未成年人购票政策" range="2026.06.08 ~">
           <ul>
-            <li>a. 14周岁以下（有效身份证明出生日期为2012年7月09日及以后）的用户<b>不可购票</b>。</li>
-            <li>b. 14周岁至未满18周岁（2008年7月09日之间至2012年7月10日之间）购票成功后，需线上回传《未成年人入场安全承诺书》。</li>
+            <li>a. 14周岁以下（有效身份证明出生日期为2012年7月10日及以后）的用户<b>不可购票</b>。</li>
+            <li>b. 14周岁至未满18周岁（2008年7月10日之间至2012年7月10日之间）购票成功后，需线上回传《未成年人入场安全承诺书》。</li>
             <li>c. 年满18周岁（2008年7月10日及以前）购票成功后，无需提交附加材料</li>
-            <li><b>《未成年人入场安全承诺书》会通过私信发送给购票B站账户</b></li>
+            <li><b>《未成年人入场安全承诺书》会通过私信发送给购票B站账户，或点击 → <a href="https://b23.tv/xa75H0D" target=_blank>立即下载</a> ← </b></li>
           </ul>
         </BwLatest>
       </BwUpdate>
@@ -297,6 +308,20 @@ import {
           <li><b><span class="hl">若在截止日期前未填写着装登记表，你的BW门票可能会被【退票】！！！</span></b></li>
         </ul>
       </BwCallout>
+    </BwSection>
+
+    <BwSection>
+      <h2>9、退票规则</h2>
+        <table class="bw-table">
+        <thead>
+          <tr><th class="center">申请退票时间</th><th class="center">是否支持退票</th><th class="center">退票手续费</th><th class="center">备注</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-green"><td class="center"><b>6月27日 12:00前</b></td><td class="center">支持</td><td class="center">0%</td><td class="center"><b>当前</b></td></tr>
+          <tr class="row-gray"><td class="center"><b>7月3日24:00前</b></td><td class="center">支持</td><td class="center">20%</td><td class="center">-</td></tr>
+          <tr class="row-gray"><td class="center"><b>7月4日0:00后</b></td><td class="center">不支持</td><td class="center">/</td><td class="center">-</td></tr>
+        </tbody>
+      </table>
     </BwSection>
 
     <BwSection id="9">
@@ -350,11 +375,11 @@ import {
         </tbody>
       </table>
       <BwCallout type="info">
-        <div class="t">BW2025 入场指引图（来自官方）</div>
+        <div class="t">BW2026 入场指引图（来自官方）</div>
       </BwCallout>
       <div class="bw-figure">
-        <img src="https://i1.hdslb.com/bfs/new_dyn/50dd54431ab95a49e541de0f48f8095e1945533399.png" alt="bw2025entry-guide" referrerPolicy="no-referrer">
-        <div class="bw-figcap">BW2025 入场指引图（官方）</div>
+        <img src="https://i1.hdslb.com/bfs/new_dyn/7ae214adf8502aac93ce2ba9ed2687f81945533399.png" alt="bw2026entry-guide" referrerPolicy="no-referrer">
+        <div class="bw-figcap">BW2026 入场指引图（官方）</div>
       </div>
     </BwSection>
 
