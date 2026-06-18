@@ -43,26 +43,41 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 
   <section class="countdown-section" id="countdown-section">
     <div class="countdown-card">
-      <div class="countdown-label" id="countdown-label">加载中...</div>
-      <div class="countdown-timer" id="countdown-timer">00:00:00:000</div>
+      <div class="countdown-label">
+        <span class="label-prefix" id="label-prefix"></span>
+        <span class="label-name" id="label-name"></span>
+        <span class="label-suffix" id="label-suffix"></span>
+      </div>
+      <div class="countdown-timer">
+        <span class="time-box" id="countdown-hours">00</span>
+        <span class="time-unit">时</span>
+        <span class="time-box" id="countdown-minutes">00</span>
+        <span class="time-unit">分</span>
+        <span class="time-box" id="countdown-seconds">00</span>
+        <span class="time-unit">秒</span>
+      </div>
     </div>
   </section>
 </BaseLayout>
 
 <script>
   const events = [
-    { label: '距离 BW&BML 联票开票还剩', time: new Date('2026-06-19T12:00:00+08:00').getTime() },
-    { label: '距离 大会员提前批 & 尊享联票开票还剩', time: new Date('2026-06-20T12:00:00+08:00').getTime() },
-    { label: '距离 正式开票还剩', time: new Date('2026-06-20T18:00:00+08:00').getTime() },
+    { prefix: '距离 ', name: 'BW&BML联票', suffix: '开票还剩', time: new Date('2026-06-19T12:00:00+08:00').getTime() },
+    { prefix: '距离 ', name: '大会员提前批 & 尊享联票', suffix: '开票还剩', time: new Date('2026-06-20T12:00:00+08:00').getTime() },
+    { prefix: '距离 ', name: '正式开票', suffix: '还剩', time: new Date('2026-06-20T18:00:00+08:00').getTime() },
   ];
 
   let idx = 0;
-  const labelEl = document.getElementById('countdown-label');
-  const timerEl = document.getElementById('countdown-timer');
+  const prefixEl = document.getElementById('label-prefix');
+  const nameEl = document.getElementById('label-name');
+  const suffixEl = document.getElementById('label-suffix');
+  const hoursEl = document.getElementById('countdown-hours');
+  const minsEl = document.getElementById('countdown-minutes');
+  const secsEl = document.getElementById('countdown-seconds');
   const sectionEl = document.getElementById('countdown-section');
 
-  function pad(n, len) {
-    return String(n).padStart(len, '0');
+  function pad(n) {
+    return String(n).padStart(2, '0');
   }
 
   function tick() {
@@ -78,14 +93,17 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
     }
 
     const remaining = events[idx].time - now;
-    labelEl.textContent = events[idx].label;
+    prefixEl.textContent = events[idx].prefix;
+    nameEl.textContent = events[idx].name;
+    suffixEl.textContent = events[idx].suffix;
 
     const h = Math.floor(remaining / 3600000);
     const m = Math.floor((remaining % 3600000) / 60000);
     const s = Math.floor((remaining % 60000) / 1000);
-    const ms = remaining % 1000;
 
-    timerEl.textContent = `${pad(h,2)}:${pad(m,2)}:${pad(s,2)}:${pad(ms,3)}`;
+    hoursEl.textContent = pad(h);
+    minsEl.textContent = pad(m);
+    secsEl.textContent = pad(s);
     requestAnimationFrame(tick);
   }
 
@@ -211,38 +229,57 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
     line-height: 1.7;
   }
 
+  .countdown-card {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 64px;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(24px) saturate(1.4);
+    -webkit-backdrop-filter: blur(24px) saturate(1.4);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border-radius: 24px;
+  }
+
   .countdown-section {
+    position: relative;
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 20px 60px;
-  }
-
-  .countdown-card {
-    position: relative;
-    border-radius: 16px;
-    padding: 32px 24px;
     text-align: center;
-    background: transparent;
   }
 
-  .countdown-card::before {
+  .countdown-section::before {
     content: '';
     position: absolute;
-    inset: 0;
-    border-radius: 16px;
-    padding: 3px;
-    background: linear-gradient(135deg, var(--brand), var(--brand2));
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 300px;
+    background: linear-gradient(135deg, rgba(255, 105, 180, 0.25), rgba(100, 149, 237, 0.25));
+    border-radius: 50%;
+    filter: blur(60px);
     pointer-events: none;
+    z-index: 0;
   }
 
   .countdown-label {
     font-size: 2em;
     font-weight: 800;
-    margin-bottom: 8px;
+    margin-bottom: 16px;
     letter-spacing: 2px;
+  }
+
+  .label-prefix,
+  .label-suffix {
+    color: var(--muted);
+  }
+
+  .label-name {
     background: linear-gradient(135deg, var(--brand), var(--brand2));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -250,19 +287,39 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
   }
 
   .countdown-timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .time-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.4em;
+    height: 1.4em;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.06);
     font-size: 5em;
     font-weight: 900;
     font-family: 'Courier New', Courier, monospace;
-    letter-spacing: 6px;
-    background: linear-gradient(135deg, var(--brand), var(--brand2));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #1a1a2e;
+  }
+
+  .time-unit {
+    font-size: 1.6em;
+    font-weight: 700;
+    color: #666;
+    margin-top: 2em;
+    align-self: flex-start;
   }
 
   @media (max-width: 768px) {
     .countdown-label { font-size: 1.4em; }
-    .countdown-timer { font-size: 2.4em; letter-spacing: 3px; }
+    .time-box { font-size: 2.4em; width: 1.5em; height: 1.5em; border-radius: 8px; }
+    .time-unit { font-size: 1em; margin-top: 3em; }
 
     .hero {
       flex-direction: column;
