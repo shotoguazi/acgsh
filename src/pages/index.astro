@@ -227,7 +227,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px 64px;
+    padding: 36px 64px;
     background: rgba(255, 255, 255, 0.18);
     backdrop-filter: blur(24px) saturate(1.4);
     -webkit-backdrop-filter: blur(24px) saturate(1.4);
@@ -241,7 +241,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 20px 60px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
   }
 
   .countdown-section::before {
@@ -261,7 +262,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 
   .countdown-label {
     font-size: 2em;
-    font-weight: 800;
+    font-weight: 900;
+    font-family: 'Source Han Serif SC', 'Noto Serif SC', '思源宋体', 'SimSun', serif;
     margin-bottom: 16px;
     letter-spacing: 2px;
     background: linear-gradient(135deg, var(--brand), var(--brand2));
@@ -275,20 +277,22 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
     align-items: center;
     justify-content: center;
     gap: 12px;
+    padding-left: 40px;
   }
 
   .time-box {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 1.4em;
-    height: 1.4em;
+    width: 1.6em;
+    height: 1.6em;
     background: #fff;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.06);
     font-size: 5em;
     font-weight: 900;
-    font-family: 'Courier New', Courier, monospace;
+    line-height: 1;
+    font-family: 'Source Han Sans SC', 'Noto Sans SC', '思源黑体', 'Microsoft YaHei', sans-serif;
     color: #1a1a2e;
   }
 
@@ -296,15 +300,14 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
     font-size: 1.6em;
     font-weight: 700;
     color: #666;
-    margin-top: 2em;
-    align-self: flex-start;
+    margin-top: 2.6em;
   }
 
   @media (max-width: 768px) {
     .countdown-label { font-size: 1.1em; }
     .countdown-card { padding: 20px 16px; width: 100%; box-sizing: border-box; }
     .countdown-timer { gap: 6px; }
-    .time-box { font-size: 1.8em; width: 1.5em; height: 1.5em; border-radius: 8px; }
+    .time-box { font-size: 1.8em; width: 1.7em; height: 1.7em; border-radius: 8px; }
     .time-unit { font-size: 0.8em; margin-top: 2.2em; }
     .countdown-section { padding: 0 8px 40px; }
     .countdown-section::before { width: 300px; height: 150px; filter: blur(40px); }
