@@ -1,3 +1,7 @@
+---
+import '@/styles/global.css';
+---
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -9,6 +13,7 @@
     body {
       display: flex; justify-content: center; align-items: center; min-height: 100vh;
       background: linear-gradient(135deg, #fce4ec, #e8eaf6, #f3e5f5);
+      color: #333;
       font-family: "Microsoft YaHei", "PingFang SC", -apple-system, sans-serif;
     }
     .container { text-align: center; padding: 40px 20px; max-width: 520px; }
@@ -32,6 +37,31 @@
       transition: transform 0.2s, box-shadow 0.2s;
     }
     .btn-home:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(206, 147, 216, 0.5); }
+  @media (prefers-color-scheme: dark) {
+    body {
+      background: linear-gradient(135deg, #1a0a1e, #0d0a2e, #1a0a14);
+      color: #d0c0e0;
+    }
+    h1 {
+      background: linear-gradient(135deg, #d484b0, #a07fc0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    p {
+      color: #b8a0d0;
+    }
+    .btn-home {
+      background: linear-gradient(135deg, #d484b0, #a07fc0);
+      box-shadow: 0 4px 20px rgba(160, 127, 192, 0.4);
+    }
+    .btn-home:hover {
+      box-shadow: 0 6px 28px rgba(160, 127, 192, 0.5);
+    }
+    .meme-box {
+      box-shadow: 0 8px 40px rgba(160, 127, 192, 0.3);
+    }
+  }
   </style>
 </head>
 <body>

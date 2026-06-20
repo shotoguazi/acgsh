@@ -110,16 +110,16 @@ import {
     text-align: left;
     color: var(--muted);
     font-weight: 700;
-    background: rgba(0, 0, 0, .02);
+    background: var(--surface-subtle);
   }
 
   .bw-table tr:last-child td { border-bottom: 0; }
   .bw-table .center { text-align: center; }
-  .bw-table a { color: black; }
+  .bw-table a { color: var(--text); }
 
-  .row-green { background: rgba(0, 200, 83, .10); }
-  .row-yellow { background: rgba(249, 168, 37, .12); }
-  .row-gray { background: rgba(154, 164, 178, .10); opacity: .9; }
+  .row-green { background: var(--table-row-green); }
+  .row-yellow { background: var(--table-row-yellow); }
+  .row-gray { background: var(--table-row-gray); opacity: .9; }
 
   .thanks-grid {
     display: grid;
@@ -135,7 +135,7 @@ import {
     padding: 12px 14px;
     border-radius: 14px;
     border: var(--border);
-    background: rgba(0, 0, 0, .02);
+    background: var(--surface-subtle);
     transition: all .18s ease;
   }
 
@@ -155,7 +155,7 @@ import {
     border: var(--border);
     border-radius: var(--radius);
     overflow: hidden;
-    background: rgba(0,0,0,.02);
+    background: var(--surface-subtle);
   }
 
   .bw-figure img { width: 100%; display: block; }

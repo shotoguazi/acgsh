@@ -155,7 +155,7 @@ import GuideLayout from '@/layouts/GuideLayout.astro';
 
   .item-card:hover {
     border-color: var(--brand2);
-    box-shadow: 0 4px 12px rgba(91, 124, 255, 0.1);
+    box-shadow: 0 4px 12px rgba(var(--brand2-rgb), 0.1);
     transform: translateY(-2px);
   }
 
@@ -197,14 +197,14 @@ import GuideLayout from '@/layouts/GuideLayout.astro';
     display: flex;
     align-items: center;
     padding: 12px 16px;
-    background: rgba(91, 124, 255, 0.04);
+    background: rgba(var(--brand2-rgb), 0.04);
     border-left: 3px solid var(--brand2);
     border-radius: 6px;
     transition: all 0.2s ease;
   }
 
   .location-item:hover {
-    background: rgba(91, 124, 255, 0.08);
+    background: rgba(var(--brand2-rgb), 0.08);
     padding-left: 20px;
   }
 
@@ -218,7 +218,7 @@ import GuideLayout from '@/layouts/GuideLayout.astro';
     font-size: 0.85em;
     color: var(--muted);
     padding: 2px 8px;
-    background: rgba(91, 124, 255, 0.1);
+    background: rgba(var(--brand2-rgb), 0.1);
     border-radius: 4px;
   }
 
@@ -240,7 +240,7 @@ import GuideLayout from '@/layouts/GuideLayout.astro';
 
   .payment-item:hover {
     border-color: var(--brand);
-    background: rgba(255, 105, 180, 0.02);
+    background: rgba(var(--brand-rgb), 0.02);
   }
 
   .payment-icon {
