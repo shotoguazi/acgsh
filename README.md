@@ -16,7 +16,16 @@
 先阅读 AGENTS.md 了解项目规范，然后按照规范进行修改。
 ```
 
-## 本地开发
+## pnpm 使用说明
+
+本项目使用 pnpm 管理依赖和运行脚本。建议通过 Corepack 启用 pnpm：
+
+```bash
+corepack enable
+corepack prepare pnpm@latest --activate
+```
+
+常用命令：
 
 ```bash
 # 安装依赖
@@ -31,6 +40,8 @@ pnpm build
 # 预览构建结果
 pnpm preview
 ```
+
+`pnpm build` 会生成静态文件到 `dist/`。仓库不再提供固定的部署脚本，请根据自己的服务器、CDN 或静态托管平台自行配置部署流程。
 
 ## 项目结构
 
@@ -53,11 +64,13 @@ src/
 │       └── BwBilingual.astro
 ├── pages/            # 页面路由
 │   ├── index.astro
+│   ├── 404.astro
+│   ├── about.astro
 │   └── guide/
 │       ├── exhibit/        # 展览
 │       ├── concert/        # 演唱会
-│       ├── others/          # 其他
-│       └── Comment.astro    # 评论区
+│       ├── intro/           # 介绍
+│       └── others/          # 其他
 └── styles/
     └── global.css    # 全局样式
 ```

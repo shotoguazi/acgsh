@@ -16,8 +16,7 @@ src/
 │   └── Nav.astro
 ├── layouts/
 │   ├── BaseLayout.astro    # 全局布局：Nav + 页面背景 + Footer
-│   ├── GuideLayout.astro   # 指南页布局：侧边栏 + 内容区
-│   └── LandingLayout.astro # 落地页布局（无 Nav/Footer）
+│   └── GuideLayout.astro   # 指南页布局：侧边栏 + 内容区
 ├── pages/
 │   ├── index.astro         # 首页
 │   ├── 404.astro
@@ -87,7 +86,6 @@ color: #333;                           /* ✗ */
 
 - **BaseLayout** = Nav + 渐变背景 + `<slot>` + Footer，所有页面默认使用
 - **GuideLayout** 继承 BaseLayout，添加左侧边栏导航 + 右侧文章区
-- **LandingLayout** 独立布局，无 Nav/Footer
 - 404 页面独立，不继承任何 Layout，但会 import global.css
 
 ## 样式约定
