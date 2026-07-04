@@ -14,12 +14,21 @@ const { title = '魔都ACGN活动交流群-资讯站', description = '这是一�
 <!DOCTYPE html>
 <html lang="zh-CN">
   <head>
+    <script is:inline>
+      (function(){
+        var saved = localStorage.getItem('theme');
+        if (saved === 'dark' || (saved !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="color-scheme" content="dark light" />
     <script>
       (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -43,10 +52,11 @@ const { title = '魔都ACGN活动交流群-资讯站', description = '这是一�
     display: flex;
     flex-direction: column;
     background:
-      radial-gradient(circle at 18% 18%, rgba(255, 196, 224, 0.44), transparent 25%),
-      radial-gradient(circle at 78% 22%, rgba(120, 219, 239, 0.48), transparent 24%),
-      radial-gradient(circle at 50% 86%, rgba(169, 239, 223, 0.42), transparent 26%),
-      linear-gradient(135deg, #f7fcff 0%, #eefbff 47%, #fff8fb 100%);
+      radial-gradient(circle at 18% 18%, var(--bg-glow-pink), transparent 25%),
+      radial-gradient(circle at 78% 22%, var(--bg-glow-cyan), transparent 24%),
+      radial-gradient(circle at 50% 86%, var(--bg-glow-mint), transparent 26%),
+      var(--bg-gradient-base),
+      var(--bg);
     background-attachment: fixed;
   }
 
@@ -57,8 +67,8 @@ const { title = '魔都ACGN活动交流群-资讯站', description = '这是一�
     pointer-events: none;
     opacity: 0.42;
     background-image:
-      radial-gradient(circle, rgba(0, 161, 214, 0.22) 0 2px, transparent 2.5px),
-      radial-gradient(circle, rgba(255, 146, 200, 0.18) 0 1.5px, transparent 2px);
+      radial-gradient(circle, rgba(var(--bili-blue-rgb), 0.22) 0 2px, transparent 2.5px),
+      radial-gradient(circle, rgba(var(--brand-rgb), 0.18) 0 1.5px, transparent 2px);
     background-position: 0 0, 28px 30px;
     background-size: 56px 56px, 70px 70px;
     mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 84%, transparent);

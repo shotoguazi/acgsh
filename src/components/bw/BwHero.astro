@@ -14,7 +14,7 @@ const { version } = Astro.props;
 
 <style>
   .bw-hero {
-    background: linear-gradient(135deg, rgba(255, 105, 180, .18), rgba(91, 124, 255, .15));
+    background: linear-gradient(135deg, rgba(var(--brand-rgb), .45), rgba(var(--brand2-rgb), .38));
     border: var(--border);
     border-radius: calc(var(--radius) + 6px);
     padding: 26px 22px;
@@ -34,12 +34,8 @@ const { version } = Astro.props;
     padding: 6px 10px;
     border-radius: 999px;
     border: var(--border);
-    background: rgba(255, 255, 255, .55);
+    background: var(--glass-hero-bg);
     color: var(--muted);
     font-size: var(--small);
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .bw-ver { background: rgba(0, 0, 0, .18); }
   }
 </style>

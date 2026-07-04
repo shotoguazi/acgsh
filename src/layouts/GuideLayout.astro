@@ -74,13 +74,13 @@ const currentPath = Astro.url.pathname;
   }
 
   .guide-sidebar a:hover {
-    background: rgba(91,124,255,.1);
+    background: rgba(var(--brand2-rgb),.1);
     color: var(--text);
     text-decoration: none;
   }
 
   .guide-sidebar a.active {
-    background: rgba(91,124,255,.12);
+    background: rgba(var(--brand2-rgb),.12);
     color: var(--brand2);
     font-weight: 600;
   }

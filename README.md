@@ -2,6 +2,16 @@
 
 由 [VitePress](https://vitepress.dev/) 迁移至 [Astro](https://astro.build/) 构建的 ACGN 资讯站。
 
+## 使用 AI 辅助开发（Vibe-Coding）
+
+**重要：** 使用 AI Agent（Cursor / Windsurf / Copilot 等）修改代码前，**务必先让 Agent 阅读 `AGENTS.md`**，其中包含完整的项目规范、主题系统、组件库说明和样式约定。
+
+建议在 Prompt 开头追加：
+
+```
+先阅读 AGENTS.md 了解项目规范，然后按照规范进行修改。
+```
+
 ## 本地开发
 
 ```bash

@@ -246,16 +246,16 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
   }
 
   .btn-brand {
-    background: linear-gradient(135deg, var(--brand), var(--brand2));
-    color: #fff;
-    border: none;
+    background: transparent;
+    border: 1.5px solid rgba(var(--brand2-rgb), .3);
+    color: var(--brand2);
   }
 
   .btn-brand:hover {
+    background: rgba(var(--brand2-rgb), .08);
+    border-color: var(--brand2);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 105, 180, .3);
     text-decoration: none;
-    color: #fff;
   }
 
   .btn-alt {
@@ -290,8 +290,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
   }
 
   .feature-card.warn {
-    border-left: 4px solid #ff4d4f;
-    background: linear-gradient(135deg, rgba(255, 77, 79, .05), transparent);
+    border-left: 4px solid var(--danger);
+    background: linear-gradient(135deg, rgba(var(--danger-rgb), .05), transparent);
   }
 
   .feature-card h2 {
@@ -312,9 +312,9 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
     padding: 5.7cqi 5.2cqi 4.8cqi;
     border-radius: 5.7cqi;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.76);
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.34)), rgba(255, 255, 255, 0.58);
-    box-shadow: 0 18px 56px rgba(20, 116, 158, 0.14);
+    border: 1px solid var(--glass-card-border);
+    background: var(--glass-card-bg);
+    box-shadow: var(--shadow-card);
     backdrop-filter: blur(18px) saturate(128%);
   }
 
@@ -331,7 +331,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
     width: 164px;
     aspect-ratio: 1;
     border-radius: 50%;
-    background: rgba(0, 161, 214, 0.14);
+    background: var(--glass-orb-a);
     animation: driftOrbA 9s ease-in-out infinite;
   }
 
@@ -341,14 +341,14 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
     width: 172px;
     aspect-ratio: 1;
     border-radius: 50%;
-    background: rgba(255, 146, 200, 0.18);
+    background: var(--glass-orb-b);
     animation: driftOrbB 10s ease-in-out infinite;
   }
 
   .main-card .tile-a, .main-card .tile-b {
     border-radius: 12px;
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.52), rgba(255, 255, 255, 0.16)), rgba(138, 228, 218, 0.18);
-    border: 1px solid rgba(255, 255, 255, 0.36);
+    background: var(--glass-tile-a-bg);
+    border: 1px solid var(--glass-card-border);
     backdrop-filter: blur(6px);
   }
 
@@ -367,7 +367,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
     width: 20px;
     height: 20px;
     transform: rotate(-18deg);
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.54), rgba(255, 255, 255, 0.14)), rgba(255, 146, 200, 0.16);
+    background: var(--glass-tile-b-bg);
     animation: driftTileB 7.4s ease-in-out infinite;
   }
 
@@ -390,19 +390,19 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
     height: 6.7cqi;
     padding: 0 2.4cqi;
     border-radius: 2.1cqi;
-    color: white;
+    color: var(--text-on-brand);
     font-size: 3.1cqi;
     font-weight: 800;
     letter-spacing: 0;
-    background: #00a1d6;
-    box-shadow: 0 8px 16px rgba(0, 161, 214, 0.18);
+    background: var(--bili-blue);
+    box-shadow: var(--shadow-bili);
   }
 
   .target-time {
     margin: 0;
     font-size: 2.86cqi;
     font-weight: 800;
-    color: rgba(36, 72, 92, 0.66);
+    color: var(--text-countdown-label);
   }
 
   .main-card h1 {
@@ -434,14 +434,14 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
     padding: 2.4cqi 1.4cqi 2.1cqi;
     border-radius: 3.3cqi;
     text-align: center;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.24)), rgba(255, 255, 255, 0.28);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), inset 0 -1px 0 rgba(0, 161, 214, 0.08);
+    background: var(--glass-cell-bg);
+    border: 1px solid var(--glass-cell-border);
+    box-shadow: inset 0 1px 0 var(--glass-inset-light), inset 0 -1px 0 rgba(var(--bili-blue-rgb), 0.08);
     backdrop-filter: blur(12px) saturate(120%);
   }
 
   .time-cell.main {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.56), rgba(232, 249, 255, 0.32)), rgba(255, 255, 255, 0.3);
+    background: var(--glass-cell-main-bg);
   }
 
   .time-cell::before {
@@ -515,7 +515,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
     font-size: 5.7cqi;
     line-height: 1;
     font-weight: 900;
-    color: #123e54;
+    color: var(--text-countdown);
     font-family: "Microsoft YaHei UI", "PingFang SC", "Segoe UI", sans-serif;
   }
 
@@ -523,7 +523,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
     display: block;
     margin-top: 1.4cqi;
     font-size: 2.6cqi;
-    color: rgba(36, 72, 92, 0.58);
+    color: var(--text-countdown-label);
     font-family: "Microsoft YaHei UI", "PingFang SC", "Segoe UI", sans-serif;
   }
 

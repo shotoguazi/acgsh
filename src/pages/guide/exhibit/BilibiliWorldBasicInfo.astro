@@ -370,7 +370,7 @@ import {
         <tbody>
           <tr><td><b>自驾</b></td><td>不建议自驾前往场馆</td></tr>
           <tr><td><b>网约车/出租车</b></td><td>① VIP票、邀请函、STAFF、展商、VOLUNTEER：打车至 <b><span class="hl">国家会展中心北广场（崧泽大道）-10号门</span></b>。<br/>② 普票：打车至 <b><span class="hl">国家会展中心（诸光路）-5/6/7号门</span></b>。<br/>※ 由于VIP与普票配票比例约 1:9，普票队伍可能极长。</td></tr>
-          <tr><td><b>地铁</b></td><td><b><span style="color:#00ff00">地铁2号线</span> - 国家会展中心</b>：沿通道步行至 4/5/6 号口出站。<br/><b><span style="color:#8b4513">地铁17号线</span> - 诸光路</b>：沿通道步行至 2号口出站。</td></tr>
+          <tr><td><b>地铁</b></td><td><b><span class="metro-line2">地铁2号线</span> - 国家会展中心</b>：沿通道步行至 4/5/6 号口出站。<br/><b><span class="metro-line17">地铁17号线</span> - 诸光路</b>：沿通道步行至 2号口出站。</td></tr>
           <tr><td><b>公交车</b></td><td>徐泾东站(706路区间、710路、872路、1503路、1511路、1512路、青浦20路、青浦25路、徐泾2路区间、徐泾4路、徐泾5路)</td></tr>
         </tbody>
       </table>
@@ -531,15 +531,15 @@ import {
     text-align: left;
     color: var(--muted);
     font-weight: 700;
-    background: rgba(0, 0, 0, .02);
+    background: var(--surface-subtle);
   }
 
   .bw-table tr:last-child td { border-bottom: 0; }
   .bw-table .center { text-align: center; }
 
-  .row-green { background: rgba(0, 200, 83, .10); }
-  .row-yellow { background: rgba(249, 168, 37, .12); }
-  .row-gray { background: rgba(154, 164, 178, .10); opacity: .9; }
+  .row-green { background: var(--table-row-green); }
+  .row-yellow { background: var(--table-row-yellow); }
+  .row-gray { background: var(--table-row-gray); opacity: .9; }
 
   .thanks-grid {
     display: grid;
@@ -555,7 +555,7 @@ import {
     padding: 12px 14px;
     border-radius: 14px;
     border: var(--border);
-    background: rgba(0, 0, 0, .02);
+    background: var(--surface-subtle);
     transition: all .18s ease;
   }
 
@@ -568,6 +568,8 @@ import {
   .thanks-desc { color: var(--muted); white-space: nowrap; }
 
   .hl { color: var(--brand); font-weight: 900; }
+  .metro-line2 { color: #008a2e; font-weight: 700; }
+  .metro-line17 { color: #6b3410; font-weight: 700; }
   .u { text-decoration: underline; text-underline-offset: 3px; }
 
   .bw-figure {
@@ -575,7 +577,7 @@ import {
     border: var(--border);
     border-radius: var(--radius);
     overflow: hidden;
-    background: rgba(0,0,0,.02);
+    background: var(--surface-subtle);
   }
 
   .bw-figure img { width: 100%; display: block; }
