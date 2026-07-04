@@ -31,6 +31,7 @@ const year = new Date().getFullYear();
 
       <div class="disclaimer">此处头像来自各成员QQ，与本站无关</div>
 
+      <div class="member-grid">
         <div class="member-card">
           <div class="avatar-frame avatar-frame--overlay">
             <img class="avatar special" src="https://q1.qlogo.cn/g?b=qq&nk=3349802606&s=640" alt="是瓜子酱" referrerpolicy="no-referrer" />
@@ -237,7 +238,7 @@ const year = new Date().getFullYear();
   .page {
     min-height: 100vh;
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -572,8 +573,7 @@ const year = new Date().getFullYear();
   }
 
   .footer-text {
-    position: absolute;
-    bottom: 24px;
+    position: relative;
     z-index: 1;
     color: var(--muted);
     font-size: 12px;
@@ -583,6 +583,7 @@ const year = new Date().getFullYear();
     flex-wrap: wrap;
     justify-content: center;
     opacity: .6;
+    margin-top: 36px;
   }
 
   .footer-text .sep { opacity: .4; }
