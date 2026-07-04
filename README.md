@@ -1,6 +1,10 @@
-# 魔都线下ACGN交流群-资讯站 (acgsh.com)
+# 魔都ACGN活动交流群-资讯站 (acgsh.com)
 
 由 [VitePress](https://vitepress.dev/) 迁移至 [Astro](https://astro.build/) 构建的 ACGN 资讯站。
+
+## 写在前面
+此仓库为 魔都ACGN活动交流群-资讯站 源码仓库
+
 
 ## 使用 AI 辅助开发（Vibe-Coding）
 
@@ -56,30 +60,6 @@ src/
 │       └── Comment.astro    # 评论区
 └── styles/
     └── global.css    # 全局样式
-```
-
-## Ubuntu 24 部署
-
-参见 `deploy/setup-ubuntu.sh`。
-
-快速部署：
-
-```bash
-# 1. 在服务器上克隆仓库
-git clone https://cnb.cool/acgsh/astro_website.git /var/www/koicomic
-cd /var/www/koicomic
-
-# 2. 构建
-pnpm install
-pnpm build
-
-# 3. 配置 Nginx（复制 deploy/nginx.conf）
-sudo cp deploy/nginx.conf /etc/nginx/sites-available/koicomic
-sudo ln -s ... /etc/nginx/sites-enabled/
-sudo nginx -t && sudo systemctl reload nginx
-
-# 4. SSL
-sudo certbot --nginx -d koicomic.com -d www.koicomic.com
 ```
 
 ## License
