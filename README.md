@@ -23,7 +23,6 @@
 | 出行 | [出国带卡指南](https://acgsh.com/guide/others/card/) | 境外支付方式、信用卡和用卡注意事项 |
 | 出行 | [闪击日本攻略 2025](https://acgsh.com/guide/others/JP2025/) | 日本行前准备、推荐行程和支付方式 |
 
-首页还包含 BILIBILI 2026 活动倒计时，以及常用指南入口。
 
 ## 技术栈
 
